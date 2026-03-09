@@ -1,0 +1,125 @@
+MySQL Shell 8.0.44
+
+Copyright (c) 2016, 2025, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+ MySQL  SQL > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 8
+Server version: 8.0.44 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > create database taller2;
+Query OK, 1 row affected (0.0727 sec)
+ MySQL  localhost:3306 ssl  SQL > \use taller2
+Default schema set to `taller2`.
+Fetching global names, object names from `taller2` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  taller2  SQL > create table producto(
+                                        -> producto_id int not null auto_increment key.
+                                        ->
+                                        -> ;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.' at line 2
+ MySQL  localhost:3306 ssl  taller2  SQL > create table producto(  producto_id int not null auto_increment key,
+                                        -> nombre varchar(50) not null,
+                                        -> precio decimal(7,2));
+Query OK, 0 rows affected (0.1477 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > create table cliente(
+                                        -> cliente_id int not null auto_increment key,
+                                        -> nombre varchar(50) not null,
+                                        -> apellidos varchar(50),
+                                        -> tipo enum("FISICA","MORAL") default "FISICA",
+                                        -> rfc varchar(13);
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6
+ MySQL  localhost:3306 ssl  taller2  SQL > create table cliente( cliente_id int not null auto_increment key, nombre varchar(50) not null, apellidos varchar(50), tipo enum("FISICA","MORAL") default "FISICA", rfc varchar(13));
+Query OK, 0 rows affected (0.0707 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > create table venta(
+                                        -> venta_id int not null auto_increment key,
+                                        -> fecha date not null,
+                                        -> cliente_id int not null,
+                                        -> ;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 4
+ MySQL  localhost:3306 ssl  taller2  SQL > create table venta( venta_id int not null auto_increment key, fecha date notnull, cliente_id int not null);
+Query OK, 0 rows affected (0.0707 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > create table venta_detalle(
+                                        -> venta_detalle_id int not null auto_increment key,
+                                        -> venta_id int not null,
+                                        -> producto_id int not null,
+                                        -> cantidad int not null);
+Query OK, 0 rows affected (0.1662 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > insert into producto(nombre,precio)
+                                        -> values("Gansito","22"),("Maruchan","26"),("Cocacola 600ml","20");
+Query OK, 3 rows affected (0.0462 sec)
+
+Records: 3  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  taller2  SQL > insert into cliente(nombre,rfc)
+                                        -> values("Pepe","DDE2398294434"),("Maria",2039405849132"),("Alejandro","39425285ed193");
+                                        "> ;
+                                        "> );
+                                        ">
+                                        "> ));
+                                        "> ;;)
+                                        "> )";
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"),("Alejandro","39425285ed193");
+;
+);
+
+));
+;;)
+)"' at line 2
+ MySQL  localhost:3306 ssl  taller2  SQL > insert into cliente(nombre,rfc) values("Pepe","DDE2398294434"),("Maria",2039405849132"),("Alejandro","39425285ed3");
+                                        "> ";
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"),("Alejandro","39425285ed3");
+"' at line 1
+ MySQL  localhost:3306 ssl  taller2  SQL > insert into cliente(nombre,rfc) values("Pepe","333332324242"),("Maria",2039405849132),("Alejandro","394252853");
+Query OK, 3 rows affected (0.0350 sec)
+
+Records: 3  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from cliente;
++------------+-----------+-----------+--------+---------------+
+| cliente_id | nombre    | apellidos | tipo   | rfc           |
++------------+-----------+-----------+--------+---------------+
+|          1 | Pepe      | NULL      | FISICA | 333332324242  |
+|          2 | Maria     | NULL      | FISICA | 2039405849132 |
+|          3 | Alejandro | NULL      | FISICA | 394252853     |
++------------+-----------+-----------+--------+---------------+
+3 rows in set (0.0015 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > desc venta;
++------------+------+------+-----+---------+----------------+
+| Field      | Type | Null | Key | Default | Extra          |
++------------+------+------+-----+---------+----------------+
+| venta_id   | int  | NO   | PRI | NULL    | auto_increment |
+| fecha      | date | NO   |     | NULL    |                |
+| cliente_id | int  | NO   |     | NULL    |                |
++------------+------+------+-----+---------+----------------+
+3 rows in set (0.0520 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > insert into venta(fecha,cliente_id)
+                                        -> values("2026-03-09",1),("2026-04-01",2),("2026-04-02",3);
+Query OK, 3 rows affected (0.0282 sec)
+
+Records: 3  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  taller2  SQL > insert into venta_detalle(venta_id,producto_id,cantidad)
+                                        -> values(1,1,5),(1,2,2),(1,3,1),(2,1,5),(3,2,1),(3,3,8);
+Query OK, 6 rows affected (0.0486 sec)
+
+Records: 6  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  taller2  SQL > select from venta_detalle;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from venta_detalle' at line 1
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from venta_detalle;}
++------------------+----------+-------------+----------+
+| venta_detalle_id | venta_id | producto_id | cantidad |
++------------------+----------+-------------+----------+
+|                1 |        1 |           1 |        5 |
+|                2 |        1 |           2 |        2 |
+|                3 |        1 |           3 |        1 |
+|                4 |        2 |           1 |        5 |
+|                5 |        3 |           2 |        1 |
+|                6 |        3 |           3 |        8 |
++------------------+----------+-------------+----------+
+6 rows in set (0.0010 sec)
+                                        -> ;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '}' at line 1
+ MySQL  localhost:3306 ssl  taller2  SQL >
