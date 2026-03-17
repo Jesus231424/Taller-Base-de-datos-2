@@ -1,0 +1,256 @@
+MySQL Shell 8.0.44
+
+Copyright (c) 2016, 2025, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \
+Expected an operand but found error (SyntaxError)
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+ MySQL  SQL > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 10
+Server version: 8.0.44 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > use taller2
+Default schema set to `taller2`.
+Fetching global names, object names from `taller2` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  taller2  SQL > show tables;
++-------------------+
+| Tables_in_taller2 |
++-------------------+
+| categoria         |
+| cliente           |
+| direccion         |
+| producto          |
+| venta             |
+| venta_detalle     |
++-------------------+
+6 rows in set (0.0060 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > show create venta_detalle
+                                        -> ;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'venta_detalle' at line 1
+ MySQL  localhost:3306 ssl  taller2  SQL > show create venta_detalle
+                                        -> ;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'venta_detalle' at line 1
+ MySQL  localhost:3306 ssl  taller2  SQL > SHOW CREATE TABLE venta_detalle;
++---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table         | Create Table                                                                                                                                                       |
++---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| venta_detalle | CREATE TABLE `venta_detalle` (
+  `venta_detalle_id` int NOT NULL AUTO_INCREMENT,
+  `venta_id` int NOT NULL,
+  `producto_id` int NOT NULL,
+  `cantidad` int NOT NULL,
+  PRIMARY KEY (`venta_detalle_id`),
+  KEY `venta_id` (`venta_id`),
+  CONSTRAINT `venta_detalle_ibfk_1` FOREIGN KEY (`venta_id`) REFERENCES `venta` (`venta_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
++---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.0931 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > drop table venta;
+ERROR: 3730 (HY000): Cannot drop table 'venta' referenced by a foreign key constraint 'venta_detalle_ibfk_1' on table 'venta_detalle'.
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from venta_detalle
+                                        -> ;
++------------------+----------+-------------+----------+
+| venta_detalle_id | venta_id | producto_id | cantidad |
++------------------+----------+-------------+----------+
+|                1 |        1 |           1 |        5 |
+|                2 |        1 |           2 |        2 |
+|                3 |        1 |           3 |        1 |
+|                4 |        2 |           1 |        5 |
+|                5 |        3 |           2 |        1 |
+|                6 |        3 |           3 |        8 |
++------------------+----------+-------------+----------+
+6 rows in set (0.0013 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > show tables;
++-------------------+
+| Tables_in_taller2 |
++-------------------+
+| categoria         |
+| cliente           |
+| direccion         |
+| producto          |
+| venta             |
+| venta_detalle     |
++-------------------+
+6 rows in set (0.0023 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > create table tablaa(
+                                        -> id int
+                                        -> valor varchar(10));
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'valor varchar(10))' at line 3
+ MySQL  localhost:3306 ssl  taller2  SQL > create table tablaa( id int, valor varchar(10));
+Query OK, 0 rows affected (0.0739 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > create table tablab( id int, valor varchar(10));
+Query OK, 0 rows affected (0.0281 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from t2.tablaa;
+ERROR: 1049 (42000): Unknown database 't2'
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from taller2.tablaa;
+Empty set (0.0027 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from taller2.tablab;
+Empty set (0.0026 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > drop table tablab;
+Query OK, 0 rows affected (0.0197 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > drop table tablaa;
+Query OK, 0 rows affected (0.0128 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > create table tabla from select * from taller2.tablaa;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from select * from taller2.tablaa' at line 1
+ MySQL  localhost:3306 ssl  taller2  SQL > create table tabla as select * from taller2.tablaa;
+ERROR: 1146 (42S02): Table 'taller2.tablaa' doesn't exist
+ MySQL  localhost:3306 ssl  taller2  SQL > create table tablaa( id int valor varchar(10));
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'valor varchar(10))' at line 1
+ MySQL  localhost:3306 ssl  taller2  SQL > create table tablaa( id int, valor varchar(10));
+Query OK, 0 rows affected (0.0220 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > create table tablab( id int, valor varchar(10));
+Query OK, 0 rows affected (0.0214 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > insert into tablaa values(1,"A"),(2,"B"),(3,"C"),(4,"D");
+Query OK, 4 rows affected (0.0094 sec)
+
+Records: 4  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  taller2  SQL > insert into tablab values(1,"X"),(2,"Y"),(3,"Z"),(4,"A"),(5,"B");
+Query OK, 5 rows affected (0.0066 sec)
+
+Records: 5  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from tablaa
+                                        -> ;
++----+-------+
+| id | valor |
++----+-------+
+|  1 | A     |
+|  2 | B     |
+|  3 | C     |
+|  4 | D     |
++----+-------+
+4 rows in set (0.0007 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from tablaa
+                                        -> union
+                                        -> select * from tablab;
++----+-------+
+| id | valor |
++----+-------+
+|  1 | A     |
+|  2 | B     |
+|  3 | C     |
+|  4 | D     |
+|  1 | X     |
+|  2 | Y     |
+|  3 | Z     |
+|  4 | A     |
+|  5 | B     |
++----+-------+
+9 rows in set (0.0018 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from tablaa interseccion select * from tablab;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select * from tablab' at line 1
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from tablaa
+                                        -> where valor in (select * from tablab);
+ERROR: 1241 (21000): Operand should contain 1 column(s)
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from tablaa where valor in (select valor from tablab);
++----+-------+
+| id | valor |
++----+-------+
+|  1 | A     |
+|  2 | B     |
++----+-------+
+2 rows in set (0.0041 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from tablaa where valor not in (select valor from tablab);
++----+-------+
+| id | valor |
++----+-------+
+|  3 | C     |
+|  4 | D     |
++----+-------+
+2 rows in set (0.0103 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from venta;
++----------+------------+------------+
+| venta_id | fecha      | cliente_id |
++----------+------------+------------+
+|        1 | 2026-03-09 |          1 |
+|        2 | 2026-04-01 |          2 |
+|        3 | 2026-04-02 |          3 |
++----------+------------+------------+
+3 rows in set (0.0055 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from cliente;
++------------+-----------+-----------+--------+---------------+
+| cliente_id | nombre    | apellidos | tipo   | rfc           |
++------------+-----------+-----------+--------+---------------+
+|          2 | Maria     | NULL      | FISICA | 2039405849132 |
+|          3 | Alejandro | NULL      | FISICA | 394252853     |
++------------+-----------+-----------+--------+---------------+
+2 rows in set (0.0030 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > insert into cliente(nombre, apellidos, rfc) values("Jose","Perez","ASDF351");
+Query OK, 1 row affected (0.0206 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from cliente;
++------------+-----------+-----------+--------+---------------+
+| cliente_id | nombre    | apellidos | tipo   | rfc           |
++------------+-----------+-----------+--------+---------------+
+|          2 | Maria     | NULL      | FISICA | 2039405849132 |
+|          3 | Alejandro | NULL      | FISICA | 394252853     |
+|          4 | Jose      | Perez     | FISICA | ASDF351       |
++------------+-----------+-----------+--------+---------------+
+3 rows in set (0.0008 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from cliente
+                                        -> where cliente_id in (select cliente_id from venta);
++------------+-----------+-----------+--------+---------------+
+| cliente_id | nombre    | apellidos | tipo   | rfc           |
++------------+-----------+-----------+--------+---------------+
+|          2 | Maria     | NULL      | FISICA | 2039405849132 |
+|          3 | Alejandro | NULL      | FISICA | 394252853     |
++------------+-----------+-----------+--------+---------------+
+2 rows in set (0.0009 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from cliente where cliente_id in (select cliente_id from venta);
++------------+-----------+-----------+--------+---------------+
+| cliente_id | nombre    | apellidos | tipo   | rfc           |
++------------+-----------+-----------+--------+---------------+
+|          2 | Maria     | NULL      | FISICA | 2039405849132 |
+|          3 | Alejandro | NULL      | FISICA | 394252853     |
++------------+-----------+-----------+--------+---------------+
+2 rows in set (0.0009 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from cliente where cliente_id not in (select cliente_id from venta);
++------------+--------+-----------+--------+---------+
+| cliente_id | nombre | apellidos | tipo   | rfc     |
++------------+--------+-----------+--------+---------+
+|          4 | Jose   | Perez     | FISICA | ASDF351 |
++------------+--------+-----------+--------+---------+
+1 row in set (0.0009 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from ventas;
+ERROR: 1146 (42S02): Table 'taller2.ventas' doesn't exist
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from venta;
++----------+------------+------------+
+| venta_id | fecha      | cliente_id |
++----------+------------+------------+
+|        1 | 2026-03-09 |          1 |
+|        2 | 2026-04-01 |          2 |
+|        3 | 2026-04-02 |          3 |
++----------+------------+------------+
+3 rows in set (0.0008 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > selecgt cliente_id from venta;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selecgt cliente_id from venta' at line 1
+ MySQL  localhost:3306 ssl  taller2  SQL > select cliente_id from venta;
++------------+
+| cliente_id |
++------------+
+|          1 |
+|          2 |
+|          3 |
++------------+
+3 rows in set (0.0008 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > select distinct cliente_id from venta;
++------------+
+| cliente_id |
++------------+
+|          1 |
+|          2 |
+|          3 |
++------------+
+3 rows in set (0.0021 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL > select * from cliente where cliente_id not in (select distinct cliente_id from venta);
++------------+--------+-----------+--------+---------+
+| cliente_id | nombre | apellidos | tipo   | rfc     |
++------------+--------+-----------+--------+---------+
+|          4 | Jose   | Perez     | FISICA | ASDF351 |
++------------+--------+-----------+--------+---------+
+1 row in set (0.0012 sec)
+ MySQL  localhost:3306 ssl  taller2  SQL >
