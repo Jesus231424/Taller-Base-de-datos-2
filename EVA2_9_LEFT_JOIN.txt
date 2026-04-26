@@ -1,0 +1,3027 @@
+MySQL Shell 8.0.44
+
+Copyright (c) 2016, 2025, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \SQL
+Unknown command: '\SQL'
+ MySQL  JS > \slq
+Unknown command: '\slq'
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+ MySQL  SQL > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 9
+Server version: 8.0.44 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > use sakila
+Default schema set to `sakila`.
+Fetching global names, object names from `sakila` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  sakila  SQL > select a.last_name, a.first_name, b.address,b.district, c.city,d.country, from customer a inner join address b ona.address_id =b.address_id inner join c on b.city_id = c.city_id inner join country d on c.country_id=d.country_id;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from customer a inner join address b on a.address_id =b.address_id inner join c ' at line 1
+ MySQL  localhost:3306 ssl  sakila  SQL > select a.last_name, a.first_name, b.address,b.district, c.city,d.country, from customer a inner join address b ona.address_id =b.address_id inner join c on b.city_id = c.city_id inner join country d on c.country_id=d.country_id;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from customer a inner join address b on a.address_id =b.address_id inner join c ' at line 1
+ MySQL  localhost:3306 ssl  sakila  SQL > select a.last_name, a.first_name, b.address,b.district,c.city,d.country, from customer a inner join address b on a.address_id =b.address_id inner join city c on b.city_id = c.city_id inner join country d on c.country_id=d.country_id;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from customer a inner join address b on a.address_id =b.address_id inner join ci' at line 1
+ MySQL  localhost:3306 ssl  sakila  SQL > select a.last_name, a.first_name, b.address,b.district,c.city,d.country from customer a inner join address b on a.address_id =b.address_id inner join city c on b.city_id = c.city_id inner join country d on c.country_id=d.country_id;
++--------------+-------------+----------------------------------------+----------------------+----------------------------+---------------------------------------+
+| last_name    | first_name  | address                                | district             | city                       | country      |
++--------------+-------------+----------------------------------------+----------------------+----------------------------+---------------------------------------+
+| MCCOY        | VERA        | 1168 Najafabad Parkway                 | Kabol                | Kabul                      | Afghanistan      |
+| CHEATHAM     | MARIO       | 1924 Shimonoseki Drive                 | Batna                | Batna                      | Algeria      |
+| GRAY         | JUDY        | 1031 Daugavpils Parkway                | Béchar               | Béchar                     | Algeria      |
+| CARROLL      | JUNE        | 757 Rustenburg Avenue                  | Skikda               | Skikda                     | Algeria      |
+| SCHWAB       | ANTHONY     | 1892 Nabereznyje Telny Lane            | Tutuila              | Tafuna                     | American Samoa      |
+| HERZOG       | CLAUDE      | 486 Ondo Parkway                       | Benguela             | Benguela                   | Angola      |
+| BALES        | MARTIN      | 368 Hunuco Boulevard                   | Namibe               | Namibe                     | Angola      |
+| BOUDREAU     | BOBBY       | 1368 Maracabo Boulevard                |                      | South Hill                 | Anguilla      |
+| MARKHAM      | WILLIE      | 1623 Kingstown Drive                   | Buenos Aires         | Almirante Brown            | Argentina      |
+| ARCHULETA    | JORDAN      | 1229 Varanasi (Benares) Manor          | Buenos Aires         | Avellaneda                 | Argentina      |
+| MORRISSEY    | JASON       | 1427 A Corua (La Corua) Place          | Buenos Aires         | Bahía Blanca               | Argentina      |
+| LEE          | KIMBERLY    | 96 Tafuna Way                          | Córdoba              | Córdoba                    | Argentina      |
+| FORMAN       | MICHEAL     | 203 Tambaram Street                    | Buenos Aires         | Escobar                    | Argentina      |
+| ASHCRAFT     | DARRYL      | 166 Jinchang Street                    | Buenos Aires         | Ezeiza                     | Argentina      |
+| FLORES       | JULIA       | 1926 El Alto Avenue                    | Buenos Aires         | La Plata                   | Argentina      |
+| WOODS        | FLORENCE    | 1532 Dzerzinsk Way                     | Buenos Aires         | Merlo                      | Argentina      |
+| SWAFFORD     | PERRY       | 773 Dallas Manor                       | Buenos Aires         | Quilmes                    | Argentina      |
+| BURKE        | LYDIA       | 1483 Pathankot Street                  | Tucumn               | San Miguel de Tucumán      | Argentina      |
+| ROBERT       | ERIC        | 430 Kumbakonam Drive                   | Santa Fé             | Santa Fé                   | Argentina      |
+| SCHOFIELD    | LEONARD     | 88 Nagaon Manor                        | Buenos Aires         | Tandil                     | Argentina      |
+| HOWELL       | WILLIE      | 1244 Allappuzha (Alleppey) Place       | Buenos Aires         | Vicente López              | Argentina      |
+| MITCHELL     | STEPHANIE   | 42 Brindisi Place                      | Yerevan              | Yerevan                    | Armenia      |
+| RAY          | AUDREY      | 1010 Klerksdorp Way                    | Steiermark           | Graz                       | Austria      |
+| HAWKINS      | JILL        | 1440 Compton Place                     | North Austria        | Linz                       | Austria      |
+| HERRERA      | NORA        | 1587 Loja Manor                        | Salzburg             | Salzburg                   | Austria      |
+| PURDY        | ANDREW      | 431 Szkesfehrvr Avenue                 | Baki                 | Baku                       | Azerbaijan      |
+| MCWHORTER    | RAYMOND     | 503 Sogamoso Loop                      | Sumqayit             | Sumqayit                   | Azerbaijan      |
+| HANNON       | SETH        | 1759 Niznekamsk Avenue                 | al-Manama            | al-Manama                  | Bahrain      |
+| QUALLS       | STEPHEN     | 1838 Tabriz Lane                       | Dhaka                | Dhaka                      | Bangladesh      |
+| WAGGONER     | FRANK       | 1816 Bydgoszcz Loop                    | Dhaka                | Jamalpur                   | Bangladesh      |
+| CLARK        | MICHELLE    | 262 A Corua (La Corua) Parkway         | Dhaka                | Tangail                    | Bangladesh      |
+| MEEHAN       | CORY        | 556 Asuncin Way                        | Mogiljov             | Mogiljov                   | Belarus      |
+| SHAW         | CLARA       | 1027 Songkhla Manor                    | Minsk                | Molodetšno                 | Belarus      |
+| WILES        | JON         | 659 Gatineau Boulevard                 | La Paz               | El Alto                    | Bolivia      |
+| FRANCISCO    | JOEL        | 287 Cuautla Boulevard                  | Chuquisaca           | Sucre                      | Bolivia      |
+| BARBEE       | CLAYTON     | 1407 Pachuca de Soto Place             | Rio Grande do Sul    | Alvorada                   | Brazil      |
+| JOY          | JOSEPH      | 1354 Siegen Street                     | Rio de Janeiro       | Angra dos Reis             | Brazil      |
+| NGUYEN       | TAMARA      | 356 Olomouc Manor                      | Gois                 | Anápolis                   | Brazil      |
+| MEYER        | NATALIE     | 1201 Qomsheh Manor                     | Gois                 | Aparecida de Goiânia       | Brazil      |
+| BENNETT      | JANE        | 1692 Ede Loop                          | São Paulo            | Araçatuba                  | Brazil      |
+| MEEK         | ANTONIO     | 1190 0 Place                           | Rio Grande do Sul    | Bagé                       | Brazil      |
+| BARFIELD     | NICHOLAS    | 1163 London Parkway                    | Par                  | Belém                      | Brazil      |
+| VASQUEZ      | TERRI       | 1304 ´s-Hertogenbosch Way              | Santa Catarina       | Blumenau                   | Brazil      |
+| MARTINO      | HAROLD      | 1293 Nam Dinh Way                      | Roraima              | Boa Vista                  | Brazil      |
+| BUNN         | TIMOTHY     | 981 Kumbakonam Place                   | Distrito Federal     | Brasília                   | Brazil      |
+| SIMMONS      | TINA        | 984 Effon-Alaiye Avenue                | Gois                 | Goiânia                    | Brazil      |
+| MCCARTNEY    | JESUS       | 259 Ipoh Drive                         | São Paulo            | Guarujá                    | Brazil      |
+| HUNTER       | CHARLOTTE   | 758 Junan Lane                         | Gois                 | Águas Lindas de Goiás      | Brazil      |
+| CABRAL       | DANIEL      | 543 Bergamo Avenue                     | Minas Gerais         | Ibirité                    | Brazil      |
+| PARKER       | FRANCES     | 686 Garland Manor                      | Cear                 | Juazeiro do Norte          | Brazil      |
+| ARSENAULT    | KENT        | 32 Liaocheng Way                       | Minas Gerais         | Juiz de Fora               | Brazil      |
+| ANDREWS      | IDA         | 1839 Szkesfehrvr Parkway               | Gois                 | Luziânia                   | Brazil      |
+| MENDOZA      | MARIAN      | 829 Grand Prairie Way                  | Paraná               | Maringá                    | Brazil      |
+| SIMPSON      | ELLEN       | 1666 Qomsheh Drive                     | São Paulo            | Poá                        | Brazil      |
+| SILVA        | MAXINE      | 1338 Zalantun Lane                     | Minas Gerais         | Poços de Caldas            | Brazil      |
+| KELLY        | DENISE      | 1206 Dos Quebradas Place               | São Paulo            | Rio Claro                  | Brazil      |
+| SNYDER       | MARION      | 1891 Rizhao Boulevard                  | São Paulo            | Santa Brbara dOeste        | Brazil      |
+| NGO          | JUSTIN      | 519 Nyeri Manor                        | São Paulo            | Santo André                | Brazil      |
+| NOLEN        | CODY        | 1715 Okayama Street                    | São Paulo            | São Bernardo do Campo      | Brazil      |
+| SKIDMORE     | FRANCISCO   | 614 Denizli Parkway                    | Rio Grande do Sul    | São Leopoldo               | Brazil      |
+| LINTON       | GEORGE      | 1957 Yantai Lane                       | São Paulo            | Sorocaba                   | Brazil      |
+| NELSON       | DEBRA       | 306 Antofagasta Place                  | Esprito Santo        | Vila Velha                 | Brazil      |
+| HURTADO      | JEREMY      | 1133 Rizhao Avenue                     | Pernambuco           | Vitória de Santo Antão     | Brazil      |
+| BUTLER       | LOIS        | 1370 Le Mans Avenue                    | Brunei and Muara     | Bandar Seri Begawan        | Brunei      |
+| ASHER        | TYRONE      | 191 Jos Azueta Parkway                 | Ruse                 | Ruse                       | Bulgaria      |
+| BANKS        | JESSIE      | 1229 Valencia Parkway                  | Haskovo              | Stara Zagora               | Bulgaria      |
+| NOE          | ELMER       | 1768 Udine Loop                        | Battambang           | Battambang                 | Cambodia      |
+| STANLEY      | ALLISON     | 754 Valencia Place                     | Phnom Penh           | Phnom Penh                 | Cambodia      |
+| CROUSE       | ALBERT      | 1641 Changhwa Place                    | Nord-Ouest           | Bamenda                    | Cameroon      |
+| LAWTON       | LAWRENCE    | 114 Jalib al-Shuyukh Manor             | Centre               | Yaoundé                    | Cameroon      |
+| BOURQUE      | DERRICK     | 1153 Allende Way                       | Québec               | Gatineau                   | Canada      |
+| POWER        | DARRELL     | 1844 Usak Avenue                       | Nova Scotia          | Halifax                    | Canada      |
+| DE ARCO      | JUANA       | 47 MySakila Drive                      | Alberta              | Lethbridge                 | Canada      |
+| CARPENTER    | LORETTA     | 891 Novi Sad Manor                     | Ontario              | Oshawa                     | Canada      |
+| IRBY         | CURTIS      | 432 Garden Grove Street                | Ontario              | Richmond Hill              | Canada      |
+| QUIGLEY      | TROY        | 983 Santa F Way                        | British Colombia     | Vancouver                  | Canada      |
+| ELROD        | JAVIER      | 195 Ilorin Street                      | Chari-Baguirmi       | NDjamna                    | Chad      |
+| PHILLIPS     | JANET       | 1718 Valencia Street                   | Antofagasta          | Antofagasta                | Chile      |
+| RAPP         | ANDRE       | 568 Dhule (Dhulia) Loop                | Coquimbo             | Coquimbo                   | Chile      |
+| KENYON       | JEROME      | 1872 Toulon Loop                       | OHiggins             | Rancagua                   | Chile      |
+| BREAUX       | TED         | 183 Haiphong Street                    | Jilin                | Baicheng                   | China      |
+| BESS         | CHARLIE     | 362 Rajkot Lane                        | Gansu                | Baiyin                     | China      |
+| MILAM        | JESSIE      | 1332 Gaziantep Lane                    | Shandong             | Binzhou                    | China      |
+| PETERS       | SUE         | 817 Bradford Loop                      | Ji´angsu             | Changzhou                  | China      |
+| VARGAS       | CHRISTY     | 1158 Mandi Bahauddin Parkway           | Shanxi               | Datong                     | China      |
+| COX          | JUDITH      | 1966 Amroha Avenue                     | Sichuan              | Daxian                     | China      |
+| EBERT        | LEO         | 1322 Mosul Parkway                     | Shandong             | Dongying                   | China      |
+| KAHN         | ALAN        | 753 Ilorin Avenue                      | Sichuan              | Emeishan                   | China      |
+| JORDAN       | TIFFANY     | 804 Elista Drive                       | Hubei                | Enshi                      | China      |
+| MAHON        | DONALD      | 1774 Yaound Place                      | Hubei                | Ezhou                      | China      |
+| MONTGOMERY   | STACEY      | 1333 Haldia Street                     | Jilin                | Fuyu                       | China      |
+| OBRIEN       | LEONA       | 1308 Sumy Loop                         | Fujian               | Fuzhou                     | China      |
+| WALDROP      | HUGH        | 904 Clarksville Drive                  | Zhejiang             | Haining                    | China      |
+| STEPHENS     | LORRAINE    | 154 Tallahassee Loop                   | Xinxiang             | Hami                       | China      |
+| WARREN       | HAZEL       | 1587 Sullana Lane                      | Inner Mongolia       | Hohhot                     | China      |
+| STEPP        | ERNEST      | 500 Lincoln Parkway                    | Ji´angsu             | Huai´an                    | China      |
+| BERRY        | REGINA      | 475 Atinsk Way                         | Gansu                | Jinchang                   | China      |
+| HIATT        | EDUARDO     | 1837 Kaduna Parkway                    | Inner Mongolia       | Jining                     | China      |
+| GUNDERSON    | TERRENCE    | 844 Bucuresti Place                    | Liaoning             | Jinzhou                    | China      |
+| SHELBY       | RICKY       | 722 Bradford Lane                      | Shandong             | Junan                      | China      |
+| SUTTON       | FELICIA     | 226 Halifax Street                     | Xinxiang             | Korla                      | China      |
+| PALMER       | MEGAN       | 1560 Jelets Boulevard                  | Shandong             | Laiwu                      | China      |
+| ELLINGTON    | MELVIN      | 1557 Cape Coral Parkway                | Hubei                | Laohekou                   | China      |
+| WADE         | MARGIE      | 1762 Paarl Parkway                     | Hunan                | Lengshuijiang              | China      |
+| GARDINER     | DAVE        | 1052 Pathankot Avenue                  | Sichuan              | Leshan                     | China      |
+| PORTER       | CARRIE      | 1854 Tieli Street                      | Shandong             | Liaocheng                  | China      |
+| WASHINGTON   | RUBY        | 1952 Chatsworth Drive                  | Guangdong            | Meixian                    | China      |
+| BAKER        | PAMELA      | 1440 Fukuyama Loop                     | Henan                | Nanyang                    | China      |
+| MATTHEWS     | ERICA       | 1294 Firozabad Drive                   | Ji´angxi             | Pingxiang                  | China      |
+| FRAZIER      | GLENDA      | 1246 Boksburg Parkway                  | Hebei                | Qinhuangdao                | China      |
+| WREN         | TYLER       | 1060 Tandil Lane                       | Shandong             | Rizhao                     | China      |
+| KNOTT        | KELLY       | 390 Wroclaw Way                        | Hainan               | Sanya                      | China      |
+| SPURLOCK     | KYLE        | 1269 Botosani Manor                    | Guangdong            | Shanwei                    | China      |
+| TOBIAS       | CLYDE       | 1909 Dayton Avenue                     | Guangdong            | Shaoguan                   | China      |
+| CULPEPPER    | EUGENE      | 686 Donostia-San Sebastin Lane         | Guangdong            | Shenzhen                   | China      |
+| BENNER       | CHESTER     | 1574 Goinia Boulevard                  | Heilongjiang         | Suihua                     | China      |
+| MEDINA       | DORA        | 1760 Oshawa Manor                      | Tianjin              | Tianjin                    | China      |
+| SILVERMAN    | MICHAEL     | 1908 Gaziantep Place                   | Liaoning             | Tiefa                      | China      |
+| CINTRON      | AUSTIN      | 1325 Fukuyama Street                   | Heilongjiang         | Tieli                      | China      |
+| BUSTAMANTE   | LEROY       | 105 Dzerzinsk Manor                    | Inner Mongolia       | Tongliao                   | China      |
+| OCAMPO       | MARION      | 1464 Kursk Parkway                     | Shandong             | Weifang                    | China      |
+| LARSON       | HEIDI       | 1103 Bilbays Parkway                   | Hubei                | Xi´angfan                  | China      |
+| TORRES       | KELLY       | 1586 Guaruj Place                      | Hunan                | Xi´angtan                  | China      |
+| PFEIFFER     | BOB         | 415 Pune Avenue                        | Shandong             | Xintai                     | China      |
+| PERRYMAN     | WALTER      | 1909 Benguela Lane                     | Henan                | Xinxiang                   | China      |
+| CALDWELL     | KAY         | 85 San Felipe de Puerto Plata Drive    | Shandong             | Yantai                     | China      |
+| VU           | ROBERTO     | 1297 Alvorada Parkway                  | Ningxia              | Yinchuan                   | China      |
+| SOUTH        | ROLAND      | 1993 0 Loop                            | Liaoning             | Yingkou                    | China      |
+| GRANT        | MICHELE     | 798 Cianjur Avenue                     | Shanxi               | Yuncheng                   | China      |
+| COY          | GARY        | 867 Benin City Avenue                  | Henan                | Yuzhou                     | China      |
+| FOSTER       | PHYLLIS     | 832 Nakhon Sawan Manor                 | Inner Mongolia       | Zalantun                   | China      |
+| TROUTMAN     | FRANKLIN    | 1778 Gijn Manor                        | Hubei                | Zaoyang                    | China      |
+| BROWNLEE     | GUY         | 346 Cam Ranh Avenue                    | Zhejiang             | Zhoushan                   | China      |
+| LYNCH        | JACKIE      | 98 Stara Zagora Boulevard              | Valle                | Buenaventura               | Colombia      |
+| ORTIZ        | SYLVIA      | 241 Mosul Lane                         | Risaralda            | Dos Quebradas              | Colombia      |
+| BOSTIC       | LEON        | 734 Tanshui Avenue                     | Caquet               | Florencia                  | Colombia      |
+| CUNNINGHAM   | STACY       | 1410 Benin City Parkway                | Risaralda            | Pereira                    | Colombia      |
+| PATTERSON    | WANDA       | 1740 Portoviejo Avenue                 | Sucre                | Sincelejo                  | Colombia      |
+| MCDUFFIE     | SAM         | 656 Matamoros Drive                    | Boyac                | Sogamoso                   | Colombia      |
+| SCHILLING    | JESSE       | 514 Ife Way                            | Shaba                | Lubumbashi                 | Congo, The Democratic Republic of the |
+| SELBY        | AARON       | 1519 Santiago de los Caballeros Loop   | East Kasai           | Mwene-Ditu                 | Congo, The Democratic Republic of the |
+| TERRY        | JENNIE      | 682 Halisahar Place                    | Severn Morava        | Olomouc                    | Czech Republic      |
+| NEUMANN      | RANDALL     | 1245 Ibirit Way                        | La Romana            | La Romana                  | Dominican Republic      |
+| EAST         | JEFF        | 437 Chungho Drive                      | Puerto Plata         | San Felipe de Puerto Plata | Dominican Republic      |
+| FLEMING      | MYRTLE      | 532 Toulon Street                      | Santiago             | Santiago de los Caballeros | Dominican Republic      |
+| HERRMANN     | TRACY       | 1074 Sanaa Parkway                     | Loja                 | Loja                       | Ecuador      |
+| DAVIDSON     | PATSY       | 816 Cayenne Parkway                    | Manab                | Portoviejo                 | Ecuador      |
+| CHOATE       | RAMON       | 1954 Kowloon and New Kowloon Way       | Chimborazo           | Ríobamba                   | Ecuador      |
+| BANDA        | EVERETT     | 1741 Hoshiarpur Boulevard              | al-Sharqiya          | Bilbays                    | Egypt      |
+| KIM          | LILLIE      | 1736 Cavite Place                      | Qina                 | Idfu                       | Egypt      |
+| MATTOX       | RICK        | 775 ostka Drive                        | al-Daqahliya         | Mit Ghamr                  | Egypt      |
+| BOYD         | EMMA        | 765 Southampton Drive                  | al-Qalyubiya         | Qalyub                     | Egypt      |
+| CASILLAS     | ALFRED      | 1727 Matamoros Place                   | Sawhaj               | Sawhaj                     | Egypt      |
+| MARSHALL     | SHERRY      | 1987 Coacalco de Berriozbal Loop       | al-Qalyubiya         | Shubra al-Khayma           | Egypt      |
+| HIDALGO      | MARCUS      | 1289 Belm Boulevard                    | Tartumaa             | Tartu                      | Estonia      |
+| DOUGLASS     | SEAN        | 614 Pak Kret Street                    | Addis Abeba          | Addis Abeba                | Ethiopia      |
+| BAUGH        | EDWARD      | 1359 Zhoushan Parkway                  | Streymoyar           | Tórshavn                   | Faroe Islands      |
+| PENA         | ERIKA       | 898 Jining Lane                        | Pohjois-Pohjanmaa    | Oulu                       | Finland      |
+| YANEZ        | LUIS        | 1346 Mysore Drive                      | Bretagne             | Brest                      | France      |
+| HUDSON       | LAUREN      | 1740 Le Mans Loop                      | Pays de la Loire     | Le Mans                    | France      |
+| GRAHAM       | RITA        | 1386 Yangor Avenue                     | Provence-Alpes-Cte   | Toulon                     | France      |
+| GREEN        | VIRGINIA    | 391 Callao Drive                       | Midi-Pyrnes          | Toulouse                   | France      |
+| HOWARD       | ROSE        | 698 Otsu Street                        | Cayenne              | Cayenne                    | French Guiana      |
+| ROBERTS      | CHRISTINE   | 1447 Imus Way                          | Tahiti               | Faaa                       | French Polynesia      |
+| COOK         | GLORIA      | 1668 Saint Louis Place                 | Tahiti               | Papeete                    | French Polynesia      |
+| TEEL         | SALVADOR    | 247 Jining Parkway                     | Banjul               | Banjul                     | Gambia      |
+| ELLIS        | GRACE       | 442 Rae Bareli Place                   | Nordrhein-Westfalen  | Duisburg                   | Germany      |
+| BETANCOURT   | MIGUEL      | 319 Springs Loop                       | Baijeri              | Erlangen                   | Germany      |
+| BREWER       | VICKIE      | 1966 Tonghae Street                    | Anhalt Sachsen       | Halle/Saale                | Germany      |
+| AUSTIN       | ALMA        | 1074 Binzhou Manor                     | Baden-Wrttemberg     | Mannheim                   | Germany      |
+| BURTON       | COLLEEN     | 430 Alessandria Loop                   | Saarland             | Saarbrücken                | Germany      |
+| SIMS         | VANESSA     | 1792 Valle de la Pascua Place          | Nordrhein-Westfalen  | Siegen                     | Germany      |
+| FIELDS       | VICKI       | 68 Molodetno Manor                     | Nordrhein-Westfalen  | Witten                     | Germany      |
+| WILLIAMS     | LINDA       | 692 Joliet Street                      | Attika               | Athenai                    | Greece      |
+| FORSYTHE     | ENRIQUE     | 1101 Bucuresti Boulevard               | West Greece          | Patras                     | Greece      |
+| CASTILLO     | GERTRUDE    | 850 Salala Loop                        | Kitaa                | Nuuk                       | Greenland      |
+| HALL         | JESSICA     | 18 Duisburg Boulevard                  |                      | Città del Vaticano         | Holy See (Vatican City State)      |
+| RODRIQUEZ    | VIOLET      | 1912 Allende Manor                     | Kowloon and New Kowl | Kowloon and New Kowloon    | Hong Kong      |
+| ROUSH        | TERRANCE    | 42 Fontana Avenue                      | Fejr                 | Székesfehérvár             | Hungary      |
+| GOOCH        | ADAM        | 230 Urawa Drive                        | Andhra Pradesh       | Adoni                      | India      |
+| RHODES       | SHERRI      | 922 Vila Velha Loop                    | Maharashtra          | Ahmadnagar                 | India      |
+| OLSON        | ANNETTE     | 431 Xi´angtan Avenue                   | Kerala               | Allappuzha (Alleppey)      | India      |
+| HARVEY       | ARLENE      | 1014 Loja Manor                        | Tamil Nadu           | Ambattur                   | India      |
+| JUNG         | CHRISTIAN   | 949 Allende Lane                       | Uttar Pradesh        | Amroha                     | India      |
+| WHEELER      | LUCY        | 624 Oshawa Boulevard                   | West Bengali         | Balurghat                  | India      |
+| YEE          | MARVIN      | 126 Acua Parkway                       | West Bengali         | Berhampore (Baharampur)    | India      |
+| COUGHLIN     | CARLOS      | 97 Mogiljov Lane                       | Gujarat              | Bhavnagar                  | India      |
+| CHAPMAN      | TONYA       | 43 Dadu Avenue                         | Rajasthan            | Bhilwara                   | India      |
+| GUILLEN      | ERIK        | 635 Brest Manor                        | Andhra Pradesh       | Bhimavaram                 | India      |
+| HARRIS       | HELEN       | 419 Iligan Lane                        | Madhya Pradesh       | Bhopal                     | India      |
+| GUTIERREZ    | CARLA       | 642 Nador Drive                        | Maharashtra          | Bhusawal                   | India      |
+| CARY         | TIM         | 1257 Guadalajara Street                | Karnataka            | Bijapur                    | India      |
+| PIERCE       | SALLY       | 1540 Wroclaw Drive                     | Maharashtra          | Chandrapur                 | India      |
+| FORTIER      | RAUL        | 1747 Rustenburg Place                  | Bihar                | Chapra                     | India      |
+| COLBY        | BERNARD     | 495 Bhimavaram Lane                    | Maharashtra          | Dhule (Dhulia)             | India      |
+| GOMEZ        | JOSEPHINE   | 211 Chiayi Drive                       | Uttar Pradesh        | Etawah                     | India      |
+| LAWRENCE     | LAURIE      | 9 San Miguel de Tucumn Manor           | Uttar Pradesh        | Firozabad                  | India      |
+| MCDONALD     | EDITH       | 1967 Sincelejo Place                   | Gujarat              | Gandhinagar                | India      |
+| TRUONG       | WAYNE       | 1049 Matamoros Parkway                 | Karnataka            | Gulbarga                   | India      |
+| FOX          | HOLLY       | 435 0 Way                              | West Bengali         | Haldia                     | India      |
+| JENSEN       | LENA        | 1027 Banjul Place                      | West Bengali         | Halisahar                  | India      |
+| BUTTERFIELD  | ALLEN       | 791 Salinas Street                     | Punjab               | Hoshiarpur                 | India      |
+| MORALES      | ANITA       | 788 Atinsk Street                      | Karnataka            | Hubli-Dharwad              | India      |
+| BAILEY       | MILDRED     | 81 Hodeida Way                         | Rajasthan            | Jaipur                     | India      |
+| LOPEZ        | AMY         | 176 Mandaluyong Place                  | Uttar Pradesh        | Jhansi                     | India      |
+| GARZA        | PEARL       | 60 Poos de Caldas Street               | Rajasthan            | Jodhpur                    | India      |
+| WRIGHT       | BRENDA      | 33 Gorontalo Way                       | West Bengali         | Kamarhati                  | India      |
+| KRAUS        | LESTER      | 1013 Tabuk Boulevard                   | West Bengali         | Kanchrapara                | India      |
+| JENNINGS     | NAOMI       | 1884 Shikarpur Avenue                  | Haryana              | Karnal                     | India      |
+| CARBONE      | CHAD        | 1948 Bayugan Parkway                   | Bihar                | Katihar                    | India      |
+| NEAL         | PENNY       | 1675 Xi´angfan Manor                   | Tamil Nadu           | Kumbakonam                 | India      |
+| CURLEY       | STEVEN      | 651 Pathankot Loop                     | Maharashtra          | Miraj                      | India      |
+| YOUNG        | CYNTHIA     | 1425 Shikarpur Manor                   | Bihar                | Munger (Monghyr)           | India      |
+| MURPHY       | CHERYL      | 1213 Ranchi Parkway                    | Karnataka            | Mysore                     | India      |
+| MILLS        | ALICIA      | 1963 Moscow Place                      | Assam                | Nagaon                     | India      |
+| SOTO         | NINA        | 1519 Ilorin Place                      | Kerala               | Palghat (Palakkad)         | India      |
+| FARNSWORTH   | JOHN        | 41 El Alto Parkway                     | Maharashtra          | Parbhani                   | India      |
+| BRYANT       | PAULA       | 1697 Tanauan Lane                      | Punjab               | Pathankot                  | India      |
+| HALE         | RAMONA      | 951 Stara Zagora Manor                 | Punjab               | Patiala                    | India      |
+| HAWKS        | LEE         | 1661 Abha Drive                        | Tamil Nadu           | Pudukkottai                | India      |
+| MASON        | JUANITA     | 943 Johannesburg Avenue                | Maharashtra          | Pune                       | India      |
+| MOTLEY       | BRADLEY     | 1596 Acua Parkway                      | Jharkhand            | Purnea (Purnia)            | India      |
+| WOOD         | LORI        | 936 Salzburg Lane                      | Uttar Pradesh        | Rae Bareli                 | India      |
+| OLVERA       | DWAYNE      | 1447 Imus Place                        | Gujarat              | Rajkot                     | India      |
+| MARK         | JOSHUA      | 1920 Weifang Avenue                    | Uttar Pradesh        | Rampur                     | India      |
+| MARLOW       | SAMUEL      | 604 Bern Place                         | Jharkhand            | Ranchi                     | India      |
+| BISHOP       | AGNES       | 866 Shivapuri Manor                    | Uttar Pradesh        | Sambhal                    | India      |
+| FULTZ        | GERALD      | 45 Aparecida de Goinia Place           | Madhya Pradesh       | Satna                      | India      |
+| GARRETT      | NELLIE      | 1964 Gijn Manor                        | Karnataka            | Shimoga                    | India      |
+| PETERSON     | NICOLE      | 57 Arlington Manor                     | Madhya Pradesh       | Shivapuri                  | India      |
+| CORNWELL     | BRETT       | 1197 Sokoto Boulevard                  | West Bengali         | Siliguri (Shiliguri)       | India      |
+| MILES        | BECKY       | 1993 Tabuk Lane                        | Tamil Nadu           | Tambaram                   | India      |
+| ARNOLD       | BEATRICE    | 1877 Ezhou Lane                        | Rajasthan            | Udaipur                    | India      |
+| CULP         | THEODORE    | 1704 Tambaram Manor                    | West Bengali         | Uluberia                   | India      |
+| JACOBS       | GEORGIA     | 954 Kimchon Place                      | West Bengali         | Uttarpara-Kotrung          | India      |
+| WAY          | MIKE        | 990 Etawah Loop                        | Tamil Nadu           | Valparai                   | India      |
+| FREEMAN      | SHANNON     | 117 Boa Vista Way                      | Uttar Pradesh        | Varanasi (Benares)         | India      |
+| HOWLAND      | MILTON      | 758 Korolev Parkway                    | Andhra Pradesh       | Vijayawada                 | India      |
+| THOMAS       | NANCY       | 808 Bhopal Manor                       | Haryana              | Yamuna Nagar               | India      |
+| CURRIER      | NORMAN      | 1445 Carmen Parkway                    | West Java            | Cianjur                    | Indonesia      |
+| ROMERO       | MINNIE      | 47 Syktyvkar Lane                      | West Java            | Ciomas                     | Indonesia      |
+| SPEAR        | JEFFREY     | 1860 Taguig Loop                       | West Java            | Ciparay                    | Indonesia      |
+| RYAN         | TARA        | 1688 Nador Lane                        | Sulawesi Utara       | Gorontalo                  | Indonesia      |
+| NICHOLS      | SUZANNE     | 456 Escobar Way                        | Jakarta Raya         | Jakarta                    | Indonesia      |
+| OLIVARES     | JORGE       | 1078 Stara Zagora Drive                | Aceh                 | Lhokseumawe                | Indonesia      |
+| KINDER       | REGINALD    | 519 Brescia Parkway                    | East Java            | Madiun                     | Indonesia      |
+| TIRADO       | LONNIE      | 1658 Cuman Loop                        | Sumatera Selatan     | Pangkal Pinang             | Indonesia      |
+| GIBSON       | VICTORIA    | 544 Malm Parkway                       | Central Java         | Pemalang                   | Indonesia      |
+| SEWARD       | LESLIE      | 1152 al-Qatif Lane                     | Kalimantan Barat     | Pontianak                  | Indonesia      |
+| MACKENZIE    | STEVE       | 154 Oshawa Manor                       | East Java            | Probolinggo                | Indonesia      |
+| ELY          | JARED       | 1003 Qinhuangdao Street                | West Java            | Purwakarta                 | Indonesia      |
+| ROBB         | JAY         | 1947 Paarl Way                         | Central Java         | Surakarta                  | Indonesia      |
+| DOWD         | LLOYD       | 935 Aden Boulevard                     | Central Java         | Tegal                      | Indonesia      |
+| ADAMS        | KATHLEEN    | 334 Munger (Monghyr) Lane              | Markazi              | Arak                       | Iran      |
+| TAYLOR       | DOROTHY     | 1531 Sal Drive                         | Esfahan              | Esfahan                    | Iran      |
+| FORTNER      | HOWARD      | 220 Hidalgo Drive                      | Kermanshah           | Kermanshah                 | Iran      |
+| ARCE         | HARRY       | 1922 Miraj Way                         | Esfahan              | Najafabad                  | Iran      |
+| COLLAZO      | TOMMY       | 76 Kermanshah Manor                    | Esfahan              | Qomsheh                    | Iran      |
+| HARPER       | ROBERTA     | 927 Barcelona Street                   | Chaharmahal va Bakht | Shahr-e Kord               | Iran      |
+| AQUINO       | OSCAR       | 956 Nam Dinh Manor                     | Kerman               | Sirjan                     | Iran      |
+| SHELTON      | DIANNE      | 600 Bradford Street                    | East Azerbaidzan     | Tabriz                     | Iran      |
+| LARUE        | DARYL       | 1208 Tama Loop                         | Ninawa               | Mosul                      | Iraq      |
+| FORD         | CRYSTAL     | 659 Vaduz Drive                        | Ha Darom             | Ashdod                     | Israel      |
+| LYMAN        | LEWIS       | 632 Usolje-Sibirskoje Parkway          | Ha Darom             | Ashqelon                   | Israel      |
+| GOODEN       | KENNETH     | 1542 Lubumbashi Boulevard              | Tel Aviv             | Bat Yam                    | Israel      |
+| PERKINS      | GERALDINE   | 97 Shimoga Avenue                      | Tel Aviv             | Tel Aviv-Jaffa             | Israel      |
+| HILL         | ANNA        | 127 Purnea (Purnia) Manor              | Piemonte             | Alessandria                | Italy      |
+| FENNELL      | ALEXANDER   | 231 Kaliningrad Place                  | Lombardia            | Bergamo                    | Italy      |
+| GRECO        | CHRISTOPHER | 1224 Huejutla de Reyes Boulevard       | Lombardia            | Brescia                    | Italy      |
+| OUTLAW       | MARC        | 1 Valle de Santiago Avenue             | Apulia               | Brindisi                   | Italy      |
+| WINDHAM      | DARREN      | 379 Lublin Parkway                     | Toscana              | Livorno                    | Italy      |
+| MORRISON     | BESSIE      | 1926 Gingoog Street                    | Sisilia              | Syrakusa                   | Italy      |
+| CLARY        | ADRIAN      | 1986 Sivas Place                       | Friuli-Venezia Giuli | Udine                      | Italy      |
+| VEST         | JULIAN      | 923 Tangail Boulevard                  | Tokyo-to             | Akishima                   | Japan      |
+| REYES        | DEBBIE      | 928 Jaffna Loop                        | Hiroshima            | Fukuyama                   | Japan      |
+| MAY          | GWENDOLYN   | 446 Kirovo-Tepetsk Lane                | Osaka                | Higashiosaka               | Japan      |
+| CHAVEZ       | KRISTEN     | 345 Oshawa Boulevard                   | Tokyo-to             | Hino                       | Japan      |
+| GANNON       | JAMES       | 1635 Kuwana Boulevard                  | Hiroshima            | Hiroshima                  | Japan      |
+| DELUCA       | RON         | 1949 Sanya Street                      | Gumma                | Isesaki                    | Japan      |
+| WELCH        | MARLENE     | 1148 Saarbrcken Parkway                | Fukushima            | Iwaki                      | Japan      |
+| ROGERS       | TERESA      | 1964 Allappuzha (Alleppey) Street      | Yamaguchi            | Iwakuni                    | Japan      |
+| SHANKS       | EARL        | 168 Cianjur Manor                      | Saitama              | Iwatsuki                   | Japan      |
+| GAMEZ        | CLARENCE    | 767 Pyongyang Drive                    | Osaka                | Izumisano                  | Japan      |
+| SPENCER      | CATHY       | 1287 Xi´angfan Boulevard               | Gifu                 | Kakamigahara               | Japan      |
+| BARNES       | RACHEL      | 586 Tete Way                           | Kanagawa             | Kamakura                   | Japan      |
+| EMMONS       | KURT        | 1421 Quilmes Lane                      | Ishikawa             | Kanazawa                   | Japan      |
+| CARRANZA     | TONY        | 454 Patiala Lane                       | Fukushima            | Koriyama                   | Japan      |
+| SCOTT        | REBECCA     | 61 Tama Street                         | Okayama              | Kurashiki                  | Japan      |
+| WAUGH        | JAMIE       | 958 Sagamihara Lane                    | Mie                  | Kuwana                     | Japan      |
+| GRISSOM      | TERRY       | 619 Hunuco Avenue                      | Shimane              | Matsue                     | Japan      |
+| CARLSON      | TERRY       | 752 Ondo Loop                          | Miyazaki             | Miyakonojo                 | Japan      |
+| MORRIS       | HEATHER     | 17 Kabul Boulevard                     | Chiba                | Nagareyama                 | Japan      |
+| MEADOR       | RICARDO     | 591 Sungai Petani Drive                | Okayama              | Okayama                    | Japan      |
+| SCHWARZ      | BRUCE       | 1565 Tangail Manor                     | Okinawa              | Okinawa                    | Japan      |
+| SCROGGINS    | STANLEY     | 1266 Laredo Parkway                    | Saitama              | Omiya                      | Japan      |
+| JORDON       | JERRY       | 124 al-Manama Way                      | Hiroshima            | Onomichi                   | Japan      |
+| MCKINNEY     | MIRIAM      | 1336 Benin City Drive                  | Shiga                | Otsu                       | Japan      |
+| ANDERSON     | LISA        | 1542 Tarlac Parkway                    | Kanagawa             | Sagamihara                 | Japan      |
+| SMITH        | MARY        | 1913 Hanoi Way                         | Nagasaki             | Sasebo                     | Japan      |
+| HERNANDEZ    | ANGELA      | 786 Aurora Avenue                      | Yamaguchi            | Shimonoseki                | Japan      |
+| HOLM         | PHILLIP     | 102 Chapra Drive                       | Ibaragi              | Tama                       | Japan      |
+| ISBELL       | FREDERICK   | 1404 Taguig Drive                      | Okayama              | Tsuyama                    | Japan      |
+| BARCLAY      | ANGEL       | 496 Celaya Drive                       | Nagano               | Ueda                       | Japan      |
+| ROBERTSON    | JOANNE      | 1337 Lincoln Parkway                   | Saitama              | Urawa                      | Japan      |
+| PRICE        | IRENE       | 602 Paarl Street                       | Pavlodar             | Pavlodar                   | Kazakstan      |
+| BOX          | BYRON       | 521 San Juan Bautista Tuxtepec Place   | Qaraghandy           | Zhezqazghan                | Kazakstan      |
+| ELLIOTT      | KATIE       | 447 Surakarta Loop                     | Nyanza               | Kisumu                     | Kenya      |
+| WHITING      | ROY         | 1658 Jastrzebie-Zdrj Loop              | Central              | Nyeri                      | Kenya      |
+| FULLER       | CLAUDIA     | 346 Skikda Parkway                     | Hawalli              | Jalib al-Shuyukh           | Kuwait      |
+| SALISBURY    | RYAN        | 1673 Tangail Drive                     | Daugavpils           | Daugavpils                 | Latvia      |
+| LEWIS        | SARAH       | 1780 Hino Boulevard                    | Liepaja              | Liepaja                    | Latvia      |
+| MORGAN       | EVELYN      | 943 Tokat Street                       | Vaduz                | Vaduz                      | Liechtenstein      |
+| GAFFNEY      | FELIX       | 1059 Yuncheng Avenue                   | Vilna                | Vilnius                    | Lithuania      |
+| HENDERSON    | ANDREA      | 320 Baiyin Parkway                     | Mahajanga            | Mahajanga                  | Madagascar      |
+| PAYNE        | LYNN        | 710 San Felipe del Progreso Avenue     | Lilongwe             | Lilongwe                   | Malawi      |
+| WAGNER       | DOLORES     | 316 Uruapan Street                     | Perak                | Ipoh                       | Malaysia      |
+| BELL         | JEAN        | 1114 Liepaja Street                    | Sarawak              | Kuching                    | Malaysia      |
+| KOWALSKI     | CHARLES     | 715 So Bernardo do Campo Lane          | Kedah                | Sungai Petani              | Malaysia      |
+| TALBERT      | GLEN        | 1789 Saint-Denis Parkway               | Coahuila de Zaragoza | Acuña                      | Mexico      |
+| RALSTON      | VINCENT     | 397 Sunnyvale Avenue                   | Guanajuato           | Allende                    | Mexico      |
+| PERRY        | SARA        | 125 Citt del Vaticano Boulevard        | Puebla               | Atlixco                    | Mexico      |
+| LUMPKIN      | WILLARD     | 1819 Alessandria Loop                  | Campeche             | Carmen                     | Mexico      |
+| STANFIELD    | SERGIO      | 1402 Zanzibar Boulevard                | Guanajuato           | Celaya                     | Mexico      |
+| MORENO       | STELLA      | 1473 Changhwa Parkway                  | Mxico                | Coacalco de Berriozábal    | Mexico      |
+| CRAWLEY      | MAURICE     | 1785 So Bernardo do Campo Street       | Veracruz             | Coatzacoalcos              | Mexico      |
+| DELOACH      | ALVIN       | 1447 Chatsworth Place                  | Chihuahua            | Cuauhtémoc                 | Mexico      |
+| MAHAN        | MATTHEW     | 479 San Felipe del Progreso Avenue     | Morelos              | Cuautla                    | Mexico      |
+| OGLESBY      | ISAAC       | 186 Skikda Lane                        | Morelos              | Cuernavaca                 | Mexico      |
+| REA          | JIM         | 814 Simferopol Loop                    | Sinaloa              | El Fuerte                  | Mexico      |
+| VARNEY       | BENJAMIN    | 817 Laredo Avenue                      | Jalisco              | Guadalajara                | Mexico      |
+| DANIELS      | DANIELLE    | 781 Shimonoseki Drive                  | Michoacn de Ocampo   | Hidalgo                    | Mexico      |
+| VANHORN      | ANDY        | 966 Asuncin Way                        | Hidalgo              | Huejutla de Reyes          | Mexico      |
+| COLE         | TRACY       | 1002 Ahmadnagar Manor                  | Mxico                | Huixquilucan               | Mexico      |
+| WOFFORD      | VIRGIL      | 760 Miyakonojo Drive                   | Guerrero             | José Azueta                | Mexico      |
+| WHEAT        | FRED        | 433 Florencia Street                   | Chihuahua            | Juárez                     | Mexico      |
+| MILLARD      | SHANE       | 184 Mandaluyong Street                 | Baja California Sur  | La Paz                     | Mexico      |
+| DUNCAN       | SAMANTHA    | 146 Johannesburg Way                   | Tamaulipas           | Matamoros                  | Mexico      |
+| GRAF         | DOUGLAS     | 785 Vaduz Street                       | Baja California      | Mexicali                   | Mexico      |
+| CROMWELL     | IVAN        | 1351 Sousse Lane                       | Coahuila de Zaragoza | Monclova                   | Mexico      |
+| HARRISON     | WENDY       | 1107 Nakhon Sawan Avenue               | Mxico                | Nezahualcóyotl             | Mexico      |
+| SCARBOROUGH  | JONATHAN    | 1698 Southport Loop                    | Hidalgo              | Pachuca de Soto            | Mexico      |
+| LOWE         | PRISCILLA   | 144 South Hill Loop                    | Guanajuato           | Salamanca                  | Mexico      |
+| WEINER       | RONALD      | 1145 Vilnius Manor                     | Mxico                | San Felipe del Progreso    | Mexico      |
+| SIKES        | FRANCIS     | 355 Vitria de Santo Anto Way           | Oaxaca               | San Juan Bautista Tuxtepec | Mexico      |
+| HENRY        | PAULINE     | 261 Saint Louis Way                    | Coahuila de Zaragoza | Torreón                    | Mexico      |
+| GRESHAM      | ALEX        | 251 Florencia Drive                    | Michoacn de Ocampo   | Uruapan                    | Mexico      |
+| CRAIG        | BOBBIE      | 86 Higashiosaka Lane                   | Guanajuato           | Valle de Santiago          | Mexico      |
+| GANDY        | FLOYD       | 1088 Ibirit Place                      | Jalisco              | Zapopan                    | Mexico      |
+| GONZALEZ     | MARTHA      | 269 Cam Ranh Parkway                   | Chisinau             | Chisinau                   | Moldova      |
+| PEMBERTON    | LANCE       | 454 Qinhuangdao Drive                  | Tadla-Azilal         | Beni-Mellal                | Morocco      |
+| CARTER       | AMANDA      | 671 Graz Street                        | Oriental             | Nador                      | Morocco      |
+| RODRIGUEZ    | LAURA       | 28 Charlotte Amalie Street             | Rabat-Sal-Zammour-Z  | Salé                       | Morocco      |
+| DOUGLAS      | MARSHA      | 771 Yaound Manor                       | Sofala               | Beira                      | Mozambique      |
+| BONE         | DON         | 596 Huixquilucan Place                 | Nampula              | Naçala-Porto               | Mozambique      |
+| RUSSELL      | ANNIE       | 1599 Plock Drive                       | Tete                 | Tete                       | Mozambique      |
+| HOLLAND      | MABEL       | 51 Laredo Avenue                       | Sagaing              | Monywa                     | Myanmar      |
+| JONES        | BARBARA     | 1566 Inegl Manor                       | Mandalay             | Myingyan                   | Myanmar      |
+| TUBBS        | DUANE       | 962 Tama Loop                          |                      | Yangor                     | Nauru      |
+| SCHULER      | KEVIN       | 470 Boksburg Street                    | Central              | Birgunj                    | Nepal      |
+| PULLEN       | GLENN       | 992 Klerksdorp Loop                    | Utrecht              | Amersfoort                 | Netherlands      |
+| KENNEDY      | RHONDA      | 1749 Daxian Place                      | Gelderland           | Apeldoorn                  | Netherlands      |
+| MENARD       | PETER       | 1217 Konotop Avenue                    | Gelderland           | Ede                        | Netherlands      |
+| GILLETTE     | DUSTIN      | 1854 Okara Boulevard                   | Drenthe              | Emmen                      | Netherlands      |
+| RUIZ         | VIVIAN      | 741 Ambattur Manor                     | Noord-Brabant        | ´s-Hertogenbosch           | Netherlands      |
+| WILSON       | SUSAN       | 478 Joliet Way                         | Hamilton             | Hamilton                   | New Zealand      |
+| GREGORY      | SONIA       | 1279 Udine Parkway                     | Edo & Delta          | Benin City                 | Nigeria      |
+| MOELLER      | RODNEY      | 1936 Lapu-Lapu Parkway                 | Bauchi & Gombe       | Deba Habe                  | Nigeria      |
+| LUCAS        | VELMA       | 1155 Liaocheng Place                   | Oyo & Osun           | Effon-Alaiye               | Nigeria      |
+| ROSS         | MARILYN     | 1888 Kabul Drive                       | Oyo & Osun           | Ife                        | Nigeria      |
+| KELLEY       | ELSIE       | 955 Bamenda Way                        | Ondo & Ekiti         | Ikerre                     | Nigeria      |
+| HAMILTON     | GLADYS      | 1177 Jelets Way                        | Kwara & Kogi         | Ilorin                     | Nigeria      |
+| GARCIA       | CAROL       | 320 Brest Avenue                       | Kaduna               | Kaduna                     | Nigeria      |
+| JIMENEZ      | OLGA        | 556 Baybay Manor                       | Oyo & Osun           | Ogbomosho                  | Nigeria      |
+| FERGUSON     | BERTHA      | 1367 Yantai Manor                      | Ondo & Ekiti         | Ondo                       | Nigeria      |
+| BARRETT      | TRACEY      | 1006 Santa Brbara dOeste Manor         | Ondo & Ekiti         | Owo                        | Nigeria      |
+| FOWLER       | JO          | 786 Stara Zagora Way                   | Oyo & Osun           | Oyo                        | Nigeria      |
+| SLONE        | WALLACE     | 1342 Sharja Way                        | Sokoto & Kebbi & Zam | Sokoto                     | Nigeria      |
+| REID         | CONSTANCE   | 885 Yingkou Manor                      | Kaduna               | Zaria                      | Nigeria      |
+| ROSE         | DARLENE     | 1386 Nakhon Sawan Boulevard            | Pyongyang-si         | Pyongyang                  | North Korea      |
+| MOORE        | MARGARET    | 613 Korolev Drive                      | Masqat               | Masqat                     | Oman      |
+| SANBORN      | GENE        | 1416 San Juan Bautista Tuxtepec Avenue | Zufar                | Salala                     | Oman      |
+| PINSON       | JEFFERY     | 966 Arecibo Loop                       | Sind                 | Dadu                       | Pakistan      |
+| FERNANDEZ    | MELINDA     | 1820 Maring Parkway                    | Punjab               | Mandi Bahauddin            | Pakistan      |
+| ROBINSON     | SHARON      | 1688 Okara Way                         | Nothwest Border Prov | Mardan                     | Pakistan      |
+| ISOM         | DANNY       | 734 Bchar Place                        | Punjab               | Okara                      | Pakistan      |
+| WALKER       | DEBORAH     | 934 San Felipe de Puerto Plata Street  | Sind                 | Shikarpur                  | Pakistan      |
+| LITTLE       | MAUREEN     | 201 Effon-Alaiye Way                   | Asunción             | Asunción                   | Paraguay      |
+| CARR         | EILEEN      | 1679 Antofagasta Street                | Alto Paran           | Ciudad del Este            | Paraguay      |
+| ARTIS        | CARL        | 1628 Nagareyama Lane                   | Central              | San Lorenzo                | Paraguay      |
+| ROYAL        | DAVID       | 827 Yuncheng Drive                     | Callao               | Callao                     | Peru      |
+| NETTLES      | JAIME       | 1746 Faaa Way                          | Huánuco              | Huánuco                    | Peru      |
+| MURRAY       | THELMA      | 1175 Tanauan Way                       | Lima                 | Lima                       | Peru      |
+| DUGGAN       | FREDDIE     | 1103 Quilmes Boulevard                 | Piura                | Sullana                    | Peru      |
+| JAMES        | KATHY       | 492 Cam Ranh Street                    | Eastern Visayas      | Baybay                     | Philippines      |
+| ARMSTRONG    | MELANIE     | 1166 Changhwa Street                   | Caraga               | Bayugan                    | Philippines      |
+| GONZALES     | NORMA       | 152 Kitwe Parkway                      | Caraga               | Bislig                     | Philippines      |
+| POULIN       | BILLY       | 1061 Ede Avenue                        | Southern Tagalog     | Cabuyao                    | Philippines      |
+| MORRELL      | CRAIG       | 717 Changzhou Lane                     | Southern Tagalog     | Cavite                     | Philippines      |
+| ALLEN        | SHIRLEY     | 217 Botshabelo Place                   | Southern Mindanao    | Davao                      | Philippines      |
+| BLAKELY      | DEREK       | 118 Jaffna Loop                        | Northern Mindanao    | Gingoog                    | Philippines      |
+| PEARSON      | IRMA        | 127 Iwakuni Boulevard                  | Central Luzon        | Hagonoy                    | Philippines      |
+| GREY         | ROSS        | 951 Springs Lane                       | Central Mindanao     | Iligan                     | Philippines      |
+| GILLILAND    | JOE         | 953 Hodeida Street                     | Southern Tagalog     | Imus                       | Philippines      |
+| HANSON       | VIOLA       | 582 Papeete Loop                       | Central Visayas      | Lapu-Lapu                  | Philippines      |
+| HOPKINS      | HILDA       | 1831 Nam Dinh Loop                     | National Capital Reg | Mandaluyong                | Philippines      |
+| TOMLIN       | EDDIE       | 1351 Aparecida de Goinia Parkway       | Northern Mindanao    | Ozamis                     | Philippines      |
+| HAVENS       | ARNOLD      | 1176 Southend-on-Sea Manor             | Southern Tagalog     | Santa Rosa                 | Philippines      |
+| WATSON       | THERESA     | 89 Allappuzha (Alleppey) Manor         | National Capital Reg | Taguig                     | Philippines      |
+| ABNEY        | RAFAEL      | 48 Maracabo Place                      | Central Luzon        | Talavera                   | Philippines      |
+| LEONE        | LOUIS       | 1191 Tandil Drive                      | Southern Tagalog     | Tanauan                    | Philippines      |
+| DEAN         | MARCIA      | 1479 Rustenburg Boulevard              | Southern Tagalog     | Tanza                      | Philippines      |
+| CORNISH      | ALLAN       | 947 Trshavn Place                      | Central Luzon        | Tarlac                     | Philippines      |
+| BYRD         | DEANNA      | 862 Xintai Lane                        | Cagayan Valley       | Tuguegarao                 | Philippines      |
+| WYMAN        | BRIAN       | 1769 Iwaki Lane                        | Kujawsko-Pomorskie   | Bydgoszcz                  | Poland      |
+| BURLESON     | SIDNEY      | 1405 Hagonoy Avenue                    | Slaskie              | Czestochowa                | Poland      |
+| TUCKER       | MARJORIE    | 1050 Garden Grove Avenue               | Slaskie              | Jastrzebie-Zdrój           | Poland      |
+| CURTIS       | LEAH        | 906 Goinia Way                         | Wielkopolskie        | Kalisz                     | Poland      |
+| GEARY        | RUBEN       | 414 Mandaluyong Street                 | Lubelskie            | Lublin                     | Poland      |
+| CHISHOLM     | JOHNNIE     | 1501 Pangkal Pinang Avenue             | Mazowieckie          | Plock                      | Poland      |
+| BRINSON      | RUSSELL     | 1642 Charlotte Amalie Drive            | Slaskie              | Tychy                      | Poland      |
+| EGGLESTON    | JIMMIE      | 505 Madiun Boulevard                   | Dolnoslaskie         | Wroclaw                    | Poland      |
+| MADRIGAL     | RALPH       | 1009 Zanzibar Lane                     | Arecibo              | Arecibo                    | Puerto Rico      |
+| CASTRO       | JENNY       | 1405 Chisinau Place                    | Ponce                | Ponce                      | Puerto Rico      |
+| GEORGE       | JOY         | 1256 Bislig Boulevard                  | Botosani             | Botosani                   | Romania      |
+| PREWITT      | KEN         | 1342 Abha Boulevard                    | Bukarest             | Bucuresti                  | Romania      |
+| HUNT         | ELEANOR     | 1952 Pune Lane                         | Saint-Denis          | Saint-Denis                | Réunion      |
+| SCHRADER     | JIMMY       | 616 Hagonoy Avenue                     | Krasnojarsk          | Atšinsk                    | Russian Federation      |
+| REED         | DORIS       | 1697 Kowloon and New Kowloon Loop      | Moskova              | Balašiha                   | Russian Federation      |
+| HOULE        | RAY         | 740 Udaipur Lane                       | Nizni Novgorod       | Dzerzinsk                  | Russian Federation      |
+| THOMPSON     | DONNA       | 270 Toulon Boulevard                   | Kalmykia             | Elista                     | Russian Federation      |
+| WALLACE      | CONNIE      | 1867 San Juan Bautista Tuxtepec Avenue | Ivanovo              | Ivanovo                    | Russian Federation      |
+| HANSEN       | DELORES     | 810 Palghat (Palakkad) Boulevard       | Jaroslavl            | Jaroslavl                  | Russian Federation      |
+| HAYES        | ROBIN       | 1913 Kamakura Place                    | Lipetsk              | Jelets                     | Russian Federation      |
+| BAUGHMAN     | ROBERT      | 1883 Maikop Lane                       | Kaliningrad          | Kaliningrad                | Russian Federation      |
+| EASTER       | BEN         | 886 Tonghae Place                      | Volgograd            | Kamyšin                    | Russian Federation      |
+| HART         | DANA        | 1089 Iwatsuki Avenue                   | Kirov                | Kirovo-Tšepetsk            | Russian Federation      |
+| BATES        | DAISY       | 661 Chisinau Lane                      | Pietari              | Kolpino                    | Russian Federation      |
+| CAUSEY       | PHILIP      | 954 Lapu-Lapu Way                      | Moskova              | Korolev                    | Russian Federation      |
+| GAITHER      | RANDY       | 1618 Olomouc Manor                     | Kurgan               | Kurgan                     | Russian Federation      |
+| TROUT        | PAUL        | 746 Joliet Lane                        | Kursk                | Kursk                      | Russian Federation      |
+| TURNER       | MARIE       | 1998 Halifax Drive                     | Lipetsk              | Lipetsk                    | Russian Federation      |
+| DUNN         | ERIN        | 1623 Baha Blanca Manor                 | Moskova              | Ljubertsy                  | Russian Federation      |
+| SIMPKINS     | ARTHUR      | 1157 Nyeri Loop                        | Adygea               | Maikop                     | Russian Federation      |
+| CAMPBELL     | CATHERINE   | 46 Pjatigorsk Lane                     | Moscow (City)        | Moscow                     | Russian Federation      |
+| BOWENS       | CLIFFORD    | 207 Cuernavaca Loop                    | Tatarstan            | Nabereznyje Tšelny         | Russian Federation      |
+| EVANS        | ANN         | 909 Garland Manor                      | Tatarstan            | Niznekamsk                 | Russian Federation      |
+| GREENE       | JEANETTE    | 1077 San Felipe de Puerto Plata Place  | Rostov-na-Donu       | Novotšerkassk              | Russian Federation      |
+| POINDEXTER   | HECTOR      | 185 Mannheim Lane                      | Stavropol            | Pjatigorsk                 | Russian Federation      |
+| MCADAMS      | ALFREDO     | 1407 Surakarta Manor                   | Moskova              | Serpuhov                   | Russian Federation      |
+| STEVENS      | ELAINE      | 801 Hagonoy Drive                      | Smolensk             | Smolensk                   | Russian Federation      |
+| KRUGER       | HERBERT     | 1823 Hoshiarpur Lane                   | Komi                 | Syktyvkar                  | Russian Federation      |
+| FRALEY       | JUAN        | 469 Nakhon Sawan Street                | Tuvassia             | Tšeboksary                 | Russian Federation      |
+| SHERROD      | WARREN      | 1621 Tongliao Avenue                   | Irkutsk              | Usolje-Sibirskoje          | Russian Federation      |
+| FOUST        | JACK        | 1378 Beira Loop                        | Krasnojarsk          | Zeleznogorsk               | Russian Federation      |
+| ANDREW       | JOSE        | 1016 Iwakuni Street                    | St George            | Kingstown                  | Saint Vincent and the Grenadines      |
+| MYERS        | PEGGY       | 733 Mandaluyong Place                  | Asir                 | Abha                       | Saudi Arabia      |
+| RAMIREZ      | CHRISTINA   | 1124 Buenaventura Drive                | Mekka                | al-Hawiya                  | Saudi Arabia      |
+| ESTEP        | TRAVIS      | 289 Santo Andr Manor                   | al-Sharqiya          | al-Qatif                   | Saudi Arabia      |
+| EDWARDS      | JOYCE       | 725 Isesaki Place                      | Mekka                | Jedda                      | Saudi Arabia      |
+| RINEHART     | MARK        | 780 Kimberley Way                      | Tabuk                | Tabuk                      | Saudi Arabia      |
+| RICKETTS     | RONNIE      | 1889 Valparai Way                      | Ziguinchor           | Ziguinchor                 | Senegal      |
+| RICO         | KEITH       | 482 Kowloon and New Kowloon Manor      | Bratislava           | Bratislava                 | Slovakia      |
+| WEBB         | ETHEL       | 569 Baicheng Lane                      | Gauteng              | Boksburg                   | South Africa      |
+| CRAWFORD     | ESTHER      | 898 Belm Manor                         | Free State           | Botshabelo                 | South Africa      |
+| LOMBARDI     | DWIGHT      | 1497 Fengshan Drive                    | KwaZulu-Natal        | Chatsworth                 | South Africa      |
+| SAUER        | DEAN        | 270 Tambaram Parkway                   | Gauteng              | Johannesburg               | South Africa      |
+| MARTINEZ     | RUTH        | 1417 Lancaster Avenue                  | Northern Cape        | Kimberley                  | South Africa      |
+| WEST         | EDNA        | 682 Junan Way                          | North West           | Klerksdorp                 | South Africa      |
+| BURK         | EDWIN       | 1766 Almirante Brown Street            | KwaZulu-Natal        | Newcastle                  | South Africa      |
+| GILMAN       | DENNIS      | 1443 Mardan Street                     | Western Cape         | Paarl                      | South Africa      |
+| RATCLIFF     | DALE        | 1639 Saarbrcken Drive                  | North West           | Rustenburg                 | South Africa      |
+| HOLMES       | LUCILLE     | 999 Sanaa Loop                         | Gauteng              | Soshanguve                 | South Africa      |
+| JENKINS      | LOUISE      | 929 Tallahassee Loop                   | Gauteng              | Springs                    | South Africa      |
+| HUGHES       | BONNIE      | 1942 Ciparay Parkway                   | Cheju                | Cheju                      | South Korea      |
+| DIAZ         | EMILY       | 588 Vila Velha Manor                   | Kyongsangbuk         | Kimchon                    | South Korea      |
+| GILBERT      | TANYA       | 647 A Corua (La Corua) Street          | Chollanam            | Naju                       | South Korea      |
+| CHURCHILL    | FERNANDO    | 193 Bhusawal Place                     | Kang-won             | Tonghae                    | South Korea      |
+| DAY          | COURTNEY    | 300 Junan Street                       | Kyonggi              | Uijongbu                   | South Korea      |
+| SANCHEZ      | JULIE       | 939 Probolinggo Loop                   | Galicia              | A Coruña (La Coruña)       | Spain      |
+| FLETCHER     | MAE         | 44 Najafabad Way                       | Baskimaa             | Donostia-San Sebastián     | Spain      |
+| BROTHERS     | CHRIS       | 331 Bydgoszcz Parkway                  | Asturia              | Gijón                      | Spain      |
+| BULL         | WESLEY      | 1469 Plock Lane                        | Galicia              | Ourense (Orense)           | Spain      |
+| CHRISTENSON  | NELSON      | 1764 Jalib al-Shuyukh Parkway          | Galicia              | Santiago de Compostela     | Spain      |
+| MURRELL      | MANUEL      | 692 Amroha Drive                       | Northern             | Jaffna                     | Sri Lanka      |
+| TURPIN       | JOHNNY      | 1152 Citrus Heights Manor              | al-Qadarif           | al-Qadarif                 | Sudan      |
+| COLLINS      | DIANE       | 115 Hidalgo Parkway                    | Khartum              | Omdurman                   | Sudan      |
+| WARD         | JANICE      | 1150 Kimchon Manor                     | Skne ln              | Malmö                      | Sweden      |
+| RIVERA       | KATHERINE   | 915 Ponce Place                        | Basel-Stadt          | Basel                      | Switzerland      |
+| KNIGHT       | GAIL        | 185 Novi Sad Place                     | Bern                 | Bern                       | Switzerland      |
+| DELVALLE     | WADE        | 1331 Usak Boulevard                    | Vaud                 | Lausanne                   | Switzerland      |
+| SANDERS      | TAMMY       | 1551 Rampur Lane                       | Changhwa             | Changhwa                   | Taiwan      |
+| BROOKS       | BEVERLY     | 1947 Poos de Caldas Boulevard          | Chiayi               | Chiayi                     | Taiwan      |
+| MCCURDY      | BRAD        | 608 Birgunj Parkway                    | Taipei               | Chungho                    | Taiwan      |
+| MCCARTER     | MORRIS      | 1568 Celaya Parkway                    | Kaohsiung            | Fengshan                   | Taiwan      |
+| QUINTANILLA  | ROGER       | 381 Kabul Way                          | Taipei               | Hsichuh                    | Taiwan      |
+| KING         | MELISSA     | 1668 Anpolis Street                    | Taipei               | Lungtan                    | Taiwan      |
+| BROWN        | ELIZABETH   | 53 Idfu Parkway                        | Nantou               | Nantou                     | Taiwan      |
+| MALCOLM      | CLIFTON     | 1489 Kakamigahara Lane                 | Taipei               | Tanshui                    | Taiwan      |
+| DIXON        | AMBER       | 1029 Dzerzinsk Manor                   | Ynlin                | Touliu                     | Taiwan      |
+| STCLAIR      | KIRK        | 1923 Stara Zagora Lane                 | Nantou               | Tsaotun                    | Taiwan      |
+| DEVORE       | HERMAN      | 64 Korla Street                        | Mwanza               | Mwanza                     | Tanzania      |
+| WEAVER       | YOLANDA     | 605 Rio Claro Parkway                  | Tabora               | Tabora                     | Tanzania      |
+| ALVAREZ      | CHARLENE    | 1842 Luzinia Boulevard                 | Zanzibar West        | Zanzibar                   | Tanzania      |
+| HEATON       | SHAWN       | 1337 Mit Ghamr Avenue                  | Nakhon Sawan         | Nakhon Sawan               | Thailand      |
+| PEREZ        | CAROLYN     | 1632 Bislig Avenue                     | Nonthaburi           | Pak Kret                   | Thailand      |
+| LONG         | JACQUELINE  | 870 Ashqelon Loop                      | Songkhla             | Songkhla                   | Thailand      |
+| BILLINGSLEY  | HENRY       | 1516 Escobar Drive                     | Tongatapu            | Nuku´alofa                 | Tonga      |
+| MAULDIN      | GREGORY     | 507 Smolensk Loop                      | Sousse               | Sousse                     | Tunisia      |
+| THRASHER     | LARRY       | 663 Baha Blanca Parkway                | Adana                | Adana                      | Turkey      |
+| HUEY         | BRANDON     | 1912 Emeishan Drive                    | Balikesir            | Balikesir                  | Turkey      |
+| WILLIS       | BERNICE     | 29 Pyongyang Loop                      | Batman               | Batman                     | Turkey      |
+| CHAPA        | VERNON      | 698 Jelets Boulevard                   | Denizli              | Denizli                    | Turkey      |
+| RHOADS       | EDGAR       | 1269 Ipoh Avenue                       | Eskisehir            | Eskisehir                  | Turkey      |
+| HAUSER       | COREY       | 984 Novoterkassk Loop                  | Gaziantep            | Gaziantep                  | Turkey      |
+| HORTON       | BILLIE      | 457 Tongliao Loop                      | Bursa                | Inegöl                     | Turkey      |
+| GORDON       | LESLIE      | 374 Bat Yam Boulevard                  | Kilis                | Kilis                      | Turkey      |
+| WELLS        | SHEILA      | 848 Tafuna Manor                       | Kütahya              | Kütahya                    | Turkey      |
+| JACKSON      | KAREN       | 270 Amroha Parkway                     | Osmaniye             | Osmaniye                   | Turkey      |
+| HARDER       | GABRIEL     | 680 A Corua (La Corua) Manor           | Sivas                | Sivas                      | Turkey      |
+| HARKINS      | BRENT       | 319 Plock Parkway                      | Istanbul             | Sultanbeyli                | Turkey      |
+| GARDNER      | JOANN       | 842 Salzburg Lane                      | Adana                | Tarsus                     | Turkey      |
+| MENA         | CASEY       | 539 Hami Way                           | Tokat                | Tokat                      | Turkey      |
+| SCHMIDT      | ROSEMARY    | 1215 Pyongyang Parkway                 | Usak                 | Usak                       | Turkey      |
+| LAWSON       | JEANNE      | 387 Mwene-Ditu Drive                   | Ahal                 | Ashgabat                   | Turkmenistan      |
+| SULLIVAN     | DAWN        | 454 Nakhon Sawan Boulevard             | Funafuti             | Funafuti                   | Tuvalu      |
+| TAN          | TODD        | 1793 Meixian Place                     | Hmelnytskyi          | Kamjanets-Podilskyi        | Ukraine      |
+| NOLAND       | JULIO       | 182 Nuku´alofa Drive                   | Sumy                 | Konotop                    | Ukraine      |
+| HICKS        | MONICA      | 1752 So Leopoldo Parkway               | Taka-Karpatia        | Mukatševe                  | Ukraine      |
+| CHESTNUT     | PEDRO       | 421 Yaound Street                      | Sumy                 | Šostka                     | Ukraine      |
+| COLEMAN      | KATHRYN     | 927 Baha Blanca Parkway                | Krim                 | Simferopol                 | Ukraine      |
+| RILEY        | BRITTANY    | 140 Chiayi Parkway                     | Sumy                 | Sumy                       | Ukraine      |
+| MILNER       | TOM         | 535 Ahmadnagar Manor                   | Abu Dhabi            | Abu Dhabi                  | United Arab Emirates      |
+| GRIFFIN      | LILLIAN     | 669 Firozabad Loop                     | Abu Dhabi            | al-Ayn                     | United Arab Emirates      |
+| LAMBERT      | MISTY       | 1192 Tongliao Street                   | Sharja               | Sharja                     | United Arab Emirates      |
+| POWELL       | ANNE        | 1557 Ktahya Boulevard                  | England              | Bradford                   | United Kingdom      |
+| BURNS        | APRIL       | 483 Ljubertsy Parkway                  | Scotland             | Dundee                     | United Kingdom      |
+| HOFFMAN      | MATTIE      | 1497 Yuzhou Drive                      | England              | London                     | United Kingdom      |
+| VINES        | CECIL       | 548 Uruapan Street                     | Ontario              | London                     | United Kingdom      |
+| THORN        | MARSHALL    | 1584 Ljubertsy Lane                    | England              | Southampton                | United Kingdom      |
+| MARTIN       | SANDRA      | 360 Toulouse Parkway                   | England              | Southend-on-Sea            | United Kingdom      |
+| GRUBER       | ARMANDO     | 869 Shikarpur Way                      | England              | Southport                  | United Kingdom      |
+| PAINE        | DAN         | 808 Naala-Porto Parkway                | England              | Stockport                  | United Kingdom      |
+| SLEDGE       | GILBERT     | 1515 Korla Way                         | England              | York                       | United Kingdom      |
+| HITE         | ZACHARY     | 98 Pyongyang Boulevard                 | Ohio                 | Akron                      | United States      |
+| MCCRARY      | RICHARD     | 913 Coacalco de Berriozbal Loop        | Texas                | Arlington                  | United States      |
+| ALEXANDER    | DIANA       | 1308 Arecibo Way                       | Georgia              | Augusta-Richmond County    | United States      |
+| SHELLEY      | SCOTT       | 587 Benguela Manor                     | Illinois             | Aurora                     | United States      |
+| BUFORD       | CLINTON     | 43 Vilnius Manor                       | Colorado             | Aurora                     | United States      |
+| RICHARDS     | WILMA       | 660 Jedda Boulevard                    | Washington           | Bellevue                   | United States      |
+| BLACK        | VALERIE     | 782 Mosul Street                       | Massachusetts        | Brockton                   | United States      |
+| SEAL         | KARL        | 1427 Tabuk Place                       | Florida              | Cape Coral                 | United States      |
+| WHITE        | BETTY       | 770 Bydgoszcz Avenue                   | California           | Citrus Heights             | United States      |
+| RAMOS        | EVA         | 1666 Beni-Mellal Place                 | Tennessee            | Clarksville                | United States      |
+| LANE         | RENEE       | 533 al-Ayn Boulevard                   | California           | Compton                    | United States      |
+| HARDISON     | BRYAN       | 530 Lausanne Lane                      | Texas                | Dallas                     | United States      |
+| WATTS        | SHELLY      | 32 Pudukkottai Lane                    | Ohio                 | Dayton                     | United States      |
+| LANCE        | JACOB       | 1866 al-Qatif Avenue                   | California           | El Monte                   | United States      |
+| STEWART      | ALICE       | 1135 Izumisano Parkway                 | California           | Fontana                    | United States      |
+| MCALISTER    | RENE        | 1895 Zhezqazghan Drive                 | California           | Garden Grove               | United States      |
+| STILL        | IAN         | 1894 Boa Vista Way                     | Texas                | Garland                    | United States      |
+| CRUZ         | KIM         | 333 Goinia Way                         | Texas                | Grand Prairie              | United States      |
+| STONE        | VERONICA    | 369 Papeete Way                        | North Carolina       | Greensboro                 | United States      |
+| ADAM         | NATHANIEL   | 786 Matsue Way                         | Illinois             | Joliet                     | United States      |
+| GRIGSBY      | THOMAS      | 1191 Sungai Petani Boulevard           | Missouri             | Kansas City                | United States      |
+| REYNOLDS     | ROSA        | 793 Cam Ranh Avenue                    | California           | Lancaster                  | United States      |
+| DAVIS        | JENNIFER    | 1795 Santiago de Compostela Way        | Texas                | Laredo                     | United States      |
+| RICHARDSON   | ASHLEY      | 1214 Hanoi Way                         | Nebraska             | Lincoln                    | United States      |
+| BARKLEY      | VICTOR      | 401 Sucre Boulevard                    | New Hampshire        | Manchester                 | United States      |
+| BRADLEY      | ANA         | 682 Garden Grove Place                 | Tennessee            | Memphis                    | United States      |
+| BARNETT      | CAROLE      | 1980 Kamjanets-Podilskyi Street        | Illinois             | Peoria                     | United States      |
+| HOLT         | TONI        | 1936 Cuman Avenue                      | Virginia             | Roanoke                    | United States      |
+| GAVIN        | BILL        | 1485 Bratislava Place                  | Illinois             | Rockford                   | United States      |
+| COOPER       | JOAN        | 1717 Guadalajara Lane                  | Missouri             | Saint Louis                | United States      |
+| WALTERS      | CASSANDRA   | 920 Kumbakonam Loop                    | California           | Salinas                    | United States      |
+| JOHNSON      | PATRICIA    | 1121 Loja Avenue                       | California           | San Bernardino             | United States      |
+| RICE         | JAMIE       | 879 Newcastle Way                      | Michigan             | Sterling Heights           | United States      |
+| JOHNSTON     | KRISTIN     | 226 Brest Manor                        | California           | Sunnyvale                  | United States      |
+| BOWMAN       | CAROLINE    | 1309 Weifang Street                    | Florida              | Tallahassee                | United States      |
+| GRAVES       | BRANDY      | 1944 Bamenda Way                       | Michigan             | Warren                     | United States      |
+| HENNING      | ALBERTO     | 502 Mandi Bahauddin Parkway            | Anzotegui            | Barcelona                  | Venezuela      |
+| OWENS        | CARMEN      | 1378 Alvorada Avenue                   | Distrito Federal     | Caracas                    | Venezuela      |
+| FISHER       | CINDY       | 1079 Tel Aviv-Jaffa Boulevard          | Sucre                | Cumaná                     | Venezuela      |
+| MARTEL       | CALVIN      | 138 Caracas Boulevard                  | Zulia                | Maracaíbo                  | Venezuela      |
+| WATKINS      | YVONNE      | 1848 Salala Boulevard                  | Miranda              | Ocumare del Tuy            | Venezuela      |
+| BOLIN        | MATHEW      | 163 Augusta-Richmond County Loop       | Carabobo             | Valencia                   | Venezuela      |
+| CHAMBERS     | KRISTINA    | 544 Tarsus Boulevard                   | Gurico               | Valle de la Pascua         | Venezuela      |
+| RENNER       | NEIL        | 1817 Livorno Way                       | Khanh Hoa            | Cam Ranh                   | Vietnam      |
+| FRANKLIN     | BETH        | 1149 A Corua (La Corua) Boulevard      | Haiphong             | Haiphong                   | Vietnam      |
+| NEWSOM       | PATRICK     | 68 Ponce Parkway                       | Hanoi                | Hanoi                      | Vietnam      |
+| ROBINS       | GREG        | 1786 Salinas Place                     | Nam Ha               | Nam Dinh                   | Vietnam      |
+| WESTMORELAND | MITCHELL    | 617 Klerksdorp Place                   | Khanh Hoa            | Nha Trang                  | Vietnam      |
+| GUAJARDO     | HARVEY      | 600 Purnea (Purnia) Avenue             | Nghe An              | Vinh                       | Vietnam      |
+| RUNYON       | NATHAN      | 264 Bhimavaram Manor                   | St Thomas            | Charlotte Amalie           | Virgin Islands, U.S.      |
+| OLIVER       | ELLA        | 751 Lima Loop                          | Aden                 | Aden                       | Yemen      |
+| ALLARD       | GORDON      | 434 Ourense (Orense) Manor             | Hodeida              | Hodeida                    | Yemen      |
+| SATTERFIELD  | WILLIAM     | 687 Alessandria Parkway                | Sanaa                | Sanaa                      | Yemen      |
+| WILLIAMSON   | GINA        | 1001 Miyakonojo Lane                   | Taizz                | Taizz                      | Yemen      |
+| MILLER       | MARIA       | 900 Santiago de Compostela Parkway     | Central Serbia       | Kragujevac                 | Yugoslavia      |
+| PITT         | MAX         | 1917 Kumbakonam Parkway                | Vojvodina            | Novi Sad                   | Yugoslavia      |
+| LOVELACE     | BARRY       | 1836 Korla Parkway                     | Copperbelt           | Kitwe                      | Zambia      |
++--------------+-------------+----------------------------------------+----------------------+----------------------------+---------------------------------------+
+600 rows in set (0.0821 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > select distinct(customer_id) from payment;
++-------------+
+| customer_id |
++-------------+
+|           1 |
+|           2 |
+|           3 |
+|           4 |
+|           5 |
+|           6 |
+|           7 |
+|           8 |
+|           9 |
+|          10 |
+|          11 |
+|          12 |
+|          13 |
+|          14 |
+|          15 |
+|          16 |
+|          17 |
+|          18 |
+|          19 |
+|          20 |
+|          21 |
+|          22 |
+|          23 |
+|          24 |
+|          25 |
+|          26 |
+|          27 |
+|          28 |
+|          29 |
+|          30 |
+|          31 |
+|          32 |
+|          33 |
+|          34 |
+|          35 |
+|          36 |
+|          37 |
+|          38 |
+|          39 |
+|          40 |
+|          41 |
+|          42 |
+|          43 |
+|          44 |
+|          45 |
+|          46 |
+|          47 |
+|          48 |
+|          49 |
+|          50 |
+|          51 |
+|          52 |
+|          53 |
+|          54 |
+|          55 |
+|          56 |
+|          57 |
+|          58 |
+|          59 |
+|          60 |
+|          61 |
+|          62 |
+|          63 |
+|          64 |
+|          65 |
+|          66 |
+|          67 |
+|          68 |
+|          69 |
+|          70 |
+|          71 |
+|          72 |
+|          73 |
+|          74 |
+|          75 |
+|          76 |
+|          77 |
+|          78 |
+|          79 |
+|          80 |
+|          81 |
+|          82 |
+|          83 |
+|          84 |
+|          85 |
+|          86 |
+|          87 |
+|          88 |
+|          89 |
+|          90 |
+|          91 |
+|          92 |
+|          93 |
+|          94 |
+|          95 |
+|          96 |
+|          97 |
+|          98 |
+|          99 |
+|         100 |
+|         101 |
+|         102 |
+|         103 |
+|         104 |
+|         105 |
+|         106 |
+|         107 |
+|         108 |
+|         109 |
+|         110 |
+|         111 |
+|         112 |
+|         113 |
+|         114 |
+|         115 |
+|         116 |
+|         117 |
+|         118 |
+|         119 |
+|         120 |
+|         121 |
+|         122 |
+|         123 |
+|         124 |
+|         125 |
+|         126 |
+|         127 |
+|         128 |
+|         129 |
+|         130 |
+|         131 |
+|         132 |
+|         133 |
+|         134 |
+|         135 |
+|         136 |
+|         137 |
+|         138 |
+|         139 |
+|         140 |
+|         141 |
+|         142 |
+|         143 |
+|         144 |
+|         145 |
+|         146 |
+|         147 |
+|         148 |
+|         149 |
+|         150 |
+|         151 |
+|         152 |
+|         153 |
+|         154 |
+|         155 |
+|         156 |
+|         157 |
+|         158 |
+|         159 |
+|         160 |
+|         161 |
+|         162 |
+|         163 |
+|         164 |
+|         165 |
+|         166 |
+|         167 |
+|         168 |
+|         169 |
+|         170 |
+|         171 |
+|         172 |
+|         173 |
+|         174 |
+|         175 |
+|         176 |
+|         177 |
+|         178 |
+|         179 |
+|         180 |
+|         181 |
+|         182 |
+|         183 |
+|         184 |
+|         185 |
+|         186 |
+|         187 |
+|         188 |
+|         189 |
+|         190 |
+|         191 |
+|         192 |
+|         193 |
+|         194 |
+|         195 |
+|         196 |
+|         197 |
+|         198 |
+|         199 |
+|         200 |
+|         201 |
+|         202 |
+|         203 |
+|         204 |
+|         205 |
+|         206 |
+|         207 |
+|         208 |
+|         209 |
+|         210 |
+|         211 |
+|         212 |
+|         213 |
+|         214 |
+|         215 |
+|         216 |
+|         217 |
+|         218 |
+|         219 |
+|         220 |
+|         221 |
+|         222 |
+|         223 |
+|         224 |
+|         225 |
+|         226 |
+|         227 |
+|         228 |
+|         229 |
+|         230 |
+|         231 |
+|         232 |
+|         233 |
+|         234 |
+|         235 |
+|         236 |
+|         237 |
+|         238 |
+|         239 |
+|         240 |
+|         241 |
+|         242 |
+|         243 |
+|         244 |
+|         245 |
+|         246 |
+|         247 |
+|         248 |
+|         249 |
+|         250 |
+|         251 |
+|         252 |
+|         253 |
+|         254 |
+|         255 |
+|         256 |
+|         257 |
+|         258 |
+|         259 |
+|         260 |
+|         261 |
+|         262 |
+|         263 |
+|         264 |
+|         265 |
+|         266 |
+|         267 |
+|         268 |
+|         269 |
+|         270 |
+|         271 |
+|         272 |
+|         273 |
+|         274 |
+|         275 |
+|         276 |
+|         277 |
+|         278 |
+|         279 |
+|         280 |
+|         281 |
+|         282 |
+|         283 |
+|         284 |
+|         285 |
+|         286 |
+|         287 |
+|         288 |
+|         289 |
+|         290 |
+|         291 |
+|         292 |
+|         293 |
+|         294 |
+|         295 |
+|         296 |
+|         297 |
+|         298 |
+|         299 |
+|         300 |
+|         301 |
+|         302 |
+|         303 |
+|         304 |
+|         305 |
+|         306 |
+|         307 |
+|         308 |
+|         309 |
+|         310 |
+|         311 |
+|         312 |
+|         313 |
+|         314 |
+|         315 |
+|         316 |
+|         317 |
+|         318 |
+|         319 |
+|         320 |
+|         321 |
+|         322 |
+|         323 |
+|         324 |
+|         325 |
+|         326 |
+|         327 |
+|         328 |
+|         329 |
+|         330 |
+|         331 |
+|         332 |
+|         333 |
+|         334 |
+|         335 |
+|         336 |
+|         337 |
+|         338 |
+|         339 |
+|         340 |
+|         341 |
+|         342 |
+|         343 |
+|         344 |
+|         345 |
+|         346 |
+|         347 |
+|         348 |
+|         349 |
+|         350 |
+|         351 |
+|         352 |
+|         353 |
+|         354 |
+|         355 |
+|         356 |
+|         357 |
+|         358 |
+|         359 |
+|         360 |
+|         361 |
+|         362 |
+|         363 |
+|         364 |
+|         365 |
+|         366 |
+|         367 |
+|         368 |
+|         369 |
+|         370 |
+|         371 |
+|         372 |
+|         373 |
+|         374 |
+|         375 |
+|         376 |
+|         377 |
+|         378 |
+|         379 |
+|         380 |
+|         381 |
+|         382 |
+|         383 |
+|         384 |
+|         385 |
+|         386 |
+|         387 |
+|         388 |
+|         389 |
+|         390 |
+|         391 |
+|         392 |
+|         393 |
+|         394 |
+|         395 |
+|         396 |
+|         397 |
+|         398 |
+|         399 |
+|         400 |
+|         401 |
+|         402 |
+|         403 |
+|         404 |
+|         405 |
+|         406 |
+|         407 |
+|         408 |
+|         409 |
+|         410 |
+|         411 |
+|         412 |
+|         413 |
+|         414 |
+|         415 |
+|         416 |
+|         417 |
+|         418 |
+|         419 |
+|         420 |
+|         421 |
+|         422 |
+|         423 |
+|         424 |
+|         425 |
+|         426 |
+|         427 |
+|         428 |
+|         429 |
+|         430 |
+|         431 |
+|         432 |
+|         433 |
+|         434 |
+|         435 |
+|         436 |
+|         437 |
+|         438 |
+|         439 |
+|         440 |
+|         441 |
+|         442 |
+|         443 |
+|         444 |
+|         445 |
+|         446 |
+|         447 |
+|         448 |
+|         449 |
+|         450 |
+|         451 |
+|         452 |
+|         453 |
+|         454 |
+|         455 |
+|         456 |
+|         457 |
+|         458 |
+|         459 |
+|         460 |
+|         461 |
+|         462 |
+|         463 |
+|         464 |
+|         465 |
+|         466 |
+|         467 |
+|         468 |
+|         469 |
+|         470 |
+|         471 |
+|         472 |
+|         473 |
+|         474 |
+|         475 |
+|         476 |
+|         477 |
+|         478 |
+|         479 |
+|         480 |
+|         481 |
+|         482 |
+|         483 |
+|         484 |
+|         485 |
+|         486 |
+|         487 |
+|         488 |
+|         489 |
+|         490 |
+|         491 |
+|         492 |
+|         493 |
+|         494 |
+|         495 |
+|         496 |
+|         497 |
+|         498 |
+|         499 |
+|         500 |
+|         501 |
+|         502 |
+|         503 |
+|         504 |
+|         505 |
+|         506 |
+|         507 |
+|         508 |
+|         509 |
+|         510 |
+|         511 |
+|         512 |
+|         513 |
+|         514 |
+|         515 |
+|         516 |
+|         517 |
+|         518 |
+|         519 |
+|         520 |
+|         521 |
+|         522 |
+|         523 |
+|         524 |
+|         525 |
+|         526 |
+|         527 |
+|         528 |
+|         529 |
+|         530 |
+|         531 |
+|         532 |
+|         533 |
+|         534 |
+|         535 |
+|         536 |
+|         537 |
+|         538 |
+|         539 |
+|         540 |
+|         541 |
+|         542 |
+|         543 |
+|         544 |
+|         545 |
+|         546 |
+|         547 |
+|         548 |
+|         549 |
+|         550 |
+|         551 |
+|         552 |
+|         553 |
+|         554 |
+|         555 |
+|         556 |
+|         557 |
+|         558 |
+|         559 |
+|         560 |
+|         561 |
+|         562 |
+|         563 |
+|         564 |
+|         565 |
+|         566 |
+|         567 |
+|         568 |
+|         569 |
+|         570 |
+|         571 |
+|         572 |
+|         573 |
+|         574 |
+|         575 |
+|         576 |
+|         577 |
+|         578 |
+|         579 |
+|         580 |
+|         581 |
+|         582 |
+|         583 |
+|         584 |
+|         585 |
+|         586 |
+|         587 |
+|         588 |
+|         589 |
+|         590 |
+|         591 |
+|         592 |
+|         593 |
+|         594 |
+|         595 |
+|         596 |
+|         597 |
+|         598 |
+|         599 |
++-------------+
+599 rows in set (0.0197 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > select country(*) from customer;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*) from customer' at line 1
+ MySQL  localhost:3306 ssl  sakila  SQL > select count(*) from customer;
++----------+
+| count(*) |
++----------+
+|      600 |
++----------+
+1 row in set (0.0174 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > select first_name, last_name from customer where customer_id not in (select distinct(customer_id) from payment);
++------------+-----------+
+| first_name | last_name |
++------------+-----------+
+| JUANA      | DE ARCO   |
++------------+-----------+
+1 row in set (0.0391 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > select a.last_name, a.first_name, b.amount, from customer  left join payment b on a.customer_id = b.customer_id limit 100;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from customer  left join payment b on a.customer_id = b.customer_id limit 100' at line 1
+ MySQL  localhost:3306 ssl  sakila  SQL > select a.last_name, a.first_name, b.amount, from customer a left join payment b on a.customer_id = b.customer_id limit 100;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from customer a left join payment b on a.customer_id = b.customer_id limit 100' at line 1
+ MySQL  localhost:3306 ssl  sakila  SQL > select a.last_name,a.first_name,b.amount from customer a left join payment b on a.customer_id = b.customer_id limit 100;
++-----------+------------+--------+
+| last_name | first_name | amount |
++-----------+------------+--------+
+| SMITH     | MARY       |   2.99 |
+| SMITH     | MARY       |   0.99 |
+| SMITH     | MARY       |   5.99 |
+| SMITH     | MARY       |   0.99 |
+| SMITH     | MARY       |   9.99 |
+| SMITH     | MARY       |   4.99 |
+| SMITH     | MARY       |   4.99 |
+| SMITH     | MARY       |   0.99 |
+| SMITH     | MARY       |   3.99 |
+| SMITH     | MARY       |   5.99 |
+| SMITH     | MARY       |   5.99 |
+| SMITH     | MARY       |   4.99 |
+| SMITH     | MARY       |   4.99 |
+| SMITH     | MARY       |   7.99 |
+| SMITH     | MARY       |   2.99 |
+| SMITH     | MARY       |   4.99 |
+| SMITH     | MARY       |   4.99 |
+| SMITH     | MARY       |   0.99 |
+| SMITH     | MARY       |   0.99 |
+| SMITH     | MARY       |   2.99 |
+| SMITH     | MARY       |   2.99 |
+| SMITH     | MARY       |   4.99 |
+| SMITH     | MARY       |   3.99 |
+| SMITH     | MARY       |   0.99 |
+| SMITH     | MARY       |   4.99 |
+| SMITH     | MARY       |   0.99 |
+| SMITH     | MARY       |   0.99 |
+| SMITH     | MARY       |   2.99 |
+| SMITH     | MARY       |   0.99 |
+| SMITH     | MARY       |   1.99 |
+| SMITH     | MARY       |   2.99 |
+| SMITH     | MARY       |   5.99 |
+| JOHNSON   | PATRICIA   |   4.99 |
+| JOHNSON   | PATRICIA   |   2.99 |
+| JOHNSON   | PATRICIA   |   2.99 |
+| JOHNSON   | PATRICIA   |   6.99 |
+| JOHNSON   | PATRICIA   |   4.99 |
+| JOHNSON   | PATRICIA   |   5.99 |
+| JOHNSON   | PATRICIA   |   5.99 |
+| JOHNSON   | PATRICIA   |   5.99 |
+| JOHNSON   | PATRICIA   |   2.99 |
+| JOHNSON   | PATRICIA   |   5.99 |
+| JOHNSON   | PATRICIA   |   4.99 |
+| JOHNSON   | PATRICIA   |  10.99 |
+| JOHNSON   | PATRICIA   |   0.99 |
+| JOHNSON   | PATRICIA   |   6.99 |
+| JOHNSON   | PATRICIA   |   6.99 |
+| JOHNSON   | PATRICIA   |   2.99 |
+| JOHNSON   | PATRICIA   |   0.99 |
+| JOHNSON   | PATRICIA   |   0.99 |
+| JOHNSON   | PATRICIA   |   5.99 |
+| JOHNSON   | PATRICIA   |   6.99 |
+| JOHNSON   | PATRICIA   |   2.99 |
+| JOHNSON   | PATRICIA   |   2.99 |
+| JOHNSON   | PATRICIA   |   2.99 |
+| JOHNSON   | PATRICIA   |   4.99 |
+| JOHNSON   | PATRICIA   |   5.99 |
+| JOHNSON   | PATRICIA   |   4.99 |
+| JOHNSON   | PATRICIA   |   4.99 |
+| WILLIAMS  | LINDA      |   1.99 |
+| WILLIAMS  | LINDA      |   2.99 |
+| WILLIAMS  | LINDA      |   8.99 |
+| WILLIAMS  | LINDA      |   6.99 |
+| WILLIAMS  | LINDA      |   6.99 |
+| WILLIAMS  | LINDA      |   2.99 |
+| WILLIAMS  | LINDA      |   4.99 |
+| WILLIAMS  | LINDA      |   4.99 |
+| WILLIAMS  | LINDA      |   5.99 |
+| WILLIAMS  | LINDA      |  10.99 |
+| WILLIAMS  | LINDA      |   7.99 |
+| WILLIAMS  | LINDA      |   6.99 |
+| WILLIAMS  | LINDA      |   4.99 |
+| WILLIAMS  | LINDA      |   4.99 |
+| WILLIAMS  | LINDA      |   2.99 |
+| WILLIAMS  | LINDA      |   1.99 |
+| WILLIAMS  | LINDA      |   3.99 |
+| WILLIAMS  | LINDA      |   2.99 |
+| WILLIAMS  | LINDA      |   4.99 |
+| WILLIAMS  | LINDA      |   5.99 |
+| WILLIAMS  | LINDA      |   4.99 |
+| WILLIAMS  | LINDA      |   8.99 |
+| WILLIAMS  | LINDA      |   2.99 |
+| WILLIAMS  | LINDA      |   8.99 |
+| WILLIAMS  | LINDA      |   0.99 |
+| WILLIAMS  | LINDA      |   2.99 |
+| JONES     | BARBARA    |   4.99 |
+| JONES     | BARBARA    |   0.99 |
+| JONES     | BARBARA    |   2.99 |
+| JONES     | BARBARA    |   0.99 |
+| JONES     | BARBARA    |   0.99 |
+| JONES     | BARBARA    |   5.99 |
+| JONES     | BARBARA    |   2.99 |
+| JONES     | BARBARA    |   2.99 |
+| JONES     | BARBARA    |   3.99 |
+| JONES     | BARBARA    |   5.99 |
+| JONES     | BARBARA    |   5.99 |
+| JONES     | BARBARA    |   0.99 |
+| JONES     | BARBARA    |   2.99 |
+| JONES     | BARBARA    |   4.99 |
+| JONES     | BARBARA    |   2.99 |
++-----------+------------+--------+
+100 rows in set (0.0181 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > select a.last_name, a.first_name,b.amount from customer a left join payment b on a.customer_id = b.customer_id where b.amount is null;
++-----------+------------+--------+
+| last_name | first_name | amount |
++-----------+------------+--------+
+| DE ARCO   | JUANA      |   NULL |
++-----------+------------+--------+
+1 row in set (0.0594 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > select a.last_name, a.first_name, sum(b.amount) from customer a left join payment b on a.customer_id = b.customer_id group by a.customer_id;
++--------------+-------------+---------------+
+| last_name    | first_name  | sum(b.amount) |
++--------------+-------------+---------------+
+| SMITH        | MARY        |        118.68 |
+| JOHNSON      | PATRICIA    |        128.73 |
+| WILLIAMS     | LINDA       |        135.74 |
+| JONES        | BARBARA     |         81.78 |
+| BROWN        | ELIZABETH   |        144.62 |
+| DAVIS        | JENNIFER    |         93.72 |
+| MILLER       | MARIA       |        151.67 |
+| WILSON       | SUSAN       |         92.76 |
+| MOORE        | MARGARET    |         89.77 |
+| TAYLOR       | DOROTHY     |         99.75 |
+| ANDERSON     | LISA        |        106.76 |
+| THOMAS       | NANCY       |        103.72 |
+| JACKSON      | KAREN       |        131.73 |
+| WHITE        | BETTY       |        117.72 |
+| HARRIS       | HELEN       |        134.68 |
+| MARTIN       | SANDRA      |        118.72 |
+| THOMPSON     | DONNA       |         98.79 |
+| GARCIA       | CAROL       |         91.78 |
+| MARTINEZ     | RUTH        |        125.76 |
+| ROBINSON     | SHARON      |        115.70 |
+| CLARK        | MICHELLE    |        155.65 |
+| RODRIGUEZ    | LAURA       |        113.78 |
+| LEWIS        | SARAH       |        119.70 |
+| LEE          | KIMBERLY    |         95.75 |
+| WALKER       | DEBORAH     |        115.71 |
+| HALL         | JESSICA     |        152.66 |
+| ALLEN        | SHIRLEY     |        126.69 |
+| YOUNG        | CYNTHIA     |        111.68 |
+| HERNANDEZ    | ANGELA      |        140.64 |
+| KING         | MELISSA     |        123.66 |
+| WRIGHT       | BRENDA      |        104.74 |
+| LOPEZ        | AMY         |        127.71 |
+| HILL         | ANNA        |         91.79 |
+| SCOTT        | REBECCA     |         89.76 |
+| GREEN        | VIRGINIA    |        129.68 |
+| ADAMS        | KATHLEEN    |         92.73 |
+| BAKER        | PAMELA      |         95.77 |
+| GONZALEZ     | MARTHA      |        127.66 |
+| NELSON       | DEBRA       |        141.71 |
+| CARTER       | AMANDA      |        110.73 |
+| MITCHELL     | STEPHANIE   |        118.75 |
+| PEREZ        | CAROLYN     |        117.70 |
+| ROBERTS      | CHRISTINE   |         99.76 |
+| TURNER       | MARIE       |        114.74 |
+| PHILLIPS     | JANET       |        127.73 |
+| CAMPBELL     | CATHERINE   |        142.66 |
+| PARKER       | FRANCES     |        108.78 |
+| EVANS        | ANN         |         76.83 |
+| EDWARDS      | JOYCE       |        130.72 |
+| COLLINS      | DIANE       |        169.65 |
+| STEWART      | ALICE       |        138.67 |
+| SANCHEZ      | JULIE       |        107.71 |
+| MORRIS       | HEATHER     |        115.70 |
+| ROGERS       | TERESA      |        128.71 |
+| REED         | DORIS       |        100.78 |
+| COOK         | GLORIA      |        135.70 |
+| MORGAN       | EVELYN      |        114.72 |
+| BELL         | JEAN        |        115.73 |
+| MURPHY       | CHERYL      |        133.73 |
+| BAILEY       | MILDRED     |         98.75 |
+| RIVERA       | KATHERINE   |         58.86 |
+| COOPER       | JOAN        |         84.77 |
+| RICHARDSON   | ASHLEY      |        112.75 |
+| COX          | JUDITH      |        100.67 |
+| HOWARD       | ROSE        |        103.78 |
+| WARD         | JANICE      |        144.66 |
+| TORRES       | KELLY       |         99.78 |
+| PETERSON     | NICOLE      |         94.78 |
+| GRAY         | JUDY        |         96.75 |
+| RAMIREZ      | CHRISTINA   |         80.82 |
+| JAMES        | KATHY       |        129.70 |
+| WATSON       | THERESA     |         99.70 |
+| BROOKS       | BEVERLY     |         97.76 |
+| KELLY        | DENISE      |        103.73 |
+| SANDERS      | TAMMY       |        155.59 |
+| PRICE        | IRENE       |         77.77 |
+| BENNETT      | JANE        |        100.72 |
+| WOOD         | LORI        |        141.69 |
+| BARNES       | RACHEL      |         84.78 |
+| ROSS         | MARILYN     |        137.70 |
+| HENDERSON    | ANDREA      |         93.78 |
+| COLEMAN      | KATHRYN     |        130.74 |
+| JENKINS      | LOUISE      |        101.75 |
+| PERRY        | SARA        |        141.67 |
+| POWELL       | ANNE        |         87.77 |
+| LONG         | JACQUELINE  |        148.67 |
+| PATTERSON    | WANDA       |        145.70 |
+| HUGHES       | BONNIE      |         87.79 |
+| FLORES       | JULIA       |        134.68 |
+| WASHINGTON   | RUBY        |        110.72 |
+| BUTLER       | LOIS        |        113.65 |
+| SIMMONS      | TINA        |        133.72 |
+| FOSTER       | PHYLLIS     |         91.77 |
+| GONZALES     | NORMA       |         79.79 |
+| BRYANT       | PAULA       |         77.82 |
+| ALEXANDER    | DIANA       |        105.73 |
+| RUSSELL      | ANNIE       |         58.82 |
+| GRIFFIN      | LILLIAN     |        106.75 |
+| DIAZ         | EMILY       |         91.76 |
+| HAYES        | ROBIN       |        102.76 |
+| MYERS        | PEGGY       |         96.76 |
+| FORD         | CRYSTAL     |        137.67 |
+| HAMILTON     | GLADYS      |        146.69 |
+| GRAHAM       | RITA        |         92.76 |
+| SULLIVAN     | DAWN        |        120.74 |
+| WALLACE      | CONNIE      |        100.77 |
+| WOODS        | FLORENCE    |        126.70 |
+| COLE         | TRACY       |        132.70 |
+| WEST         | EDNA        |        107.74 |
+| JORDAN       | TIFFANY     |         59.86 |
+| OWENS        | CARMEN      |         97.74 |
+| REYNOLDS     | ROSA        |        133.70 |
+| FISHER       | CINDY       |        113.71 |
+| ELLIS        | GRACE       |        139.67 |
+| HARRISON     | WENDY       |         91.70 |
+| GIBSON       | VICTORIA    |        111.73 |
+| MCDONALD     | EDITH       |         71.81 |
+| CRUZ         | KIM         |         82.79 |
+| MARSHALL     | SHERRY      |        153.66 |
+| ORTIZ        | SYLVIA      |        143.68 |
+| GOMEZ        | JOSEPHINE   |        109.74 |
+| MURRAY       | THELMA      |        126.68 |
+| FREEMAN      | SHANNON     |        100.76 |
+| WELLS        | SHEILA      |         73.82 |
+| WEBB         | ETHEL       |        135.68 |
+| SIMPSON      | ELLEN       |        117.72 |
+| STEVENS      | ELAINE      |        107.76 |
+| TUCKER       | MARJORIE    |        127.68 |
+| PORTER       | CARRIE      |        124.66 |
+| HUNTER       | CHARLOTTE   |         93.76 |
+| HICKS        | MONICA      |        128.70 |
+| CRAWFORD     | ESTHER      |         95.72 |
+| HENRY        | PAULINE     |         98.73 |
+| BOYD         | EMMA        |         94.77 |
+| MASON        | JUANITA     |        110.70 |
+| MORALES      | ANITA       |         62.85 |
+| KENNEDY      | RHONDA      |        194.61 |
+| WARREN       | HAZEL       |        110.66 |
+| DIXON        | AMBER       |        113.73 |
+| RAMOS        | EVA         |         83.82 |
+| REYES        | DEBBIE      |        130.68 |
+| BURNS        | APRIL       |         94.74 |
+| GORDON       | LESLIE      |         89.78 |
+| SHAW         | CLARA       |        195.58 |
+| HOLMES       | LUCILLE     |        108.72 |
+| RICE         | JAMIE       |        139.71 |
+| ROBERTSON    | JOANNE      |        127.66 |
+| HUNT         | ELEANOR     |        216.54 |
+| BLACK        | VALERIE     |        121.74 |
+| DANIELS      | DANIELLE    |        105.75 |
+| PALMER       | MEGAN       |         92.73 |
+| MILLS        | ALICIA      |         83.79 |
+| NICHOLS      | SUZANNE     |         94.76 |
+| GRANT        | MICHELE     |        130.70 |
+| KNIGHT       | GAIL        |        109.75 |
+| FERGUSON     | BERTHA      |        101.75 |
+| ROSE         | DARLENE     |        113.69 |
+| STONE        | VERONICA    |        126.68 |
+| HAWKINS      | JILL        |         68.79 |
+| DUNN         | ERIN        |        106.73 |
+| PERKINS      | GERALDINE   |        112.70 |
+| HUDSON       | LAUREN      |         71.80 |
+| SPENCER      | CATHY       |        122.71 |
+| GARDNER      | JOANN       |         66.84 |
+| STEPHENS     | LORRAINE    |         86.79 |
+| PAYNE        | LYNN        |        123.72 |
+| PIERCE       | SALLY       |        119.68 |
+| BERRY        | REGINA      |        135.66 |
+| MATTHEWS     | ERICA       |         95.78 |
+| ARNOLD       | BEATRICE    |        119.74 |
+| WAGNER       | DOLORES     |        114.74 |
+| WILLIS       | BERNICE     |        145.67 |
+| RAY          | AUDREY      |        119.71 |
+| WATKINS      | YVONNE      |         92.79 |
+| OLSON        | ANNETTE     |         98.76 |
+| CARROLL      | JUNE        |        173.63 |
+| DUNCAN       | SAMANTHA    |         71.77 |
+| SNYDER       | MARION      |        194.61 |
+| HART         | DANA        |        133.71 |
+| CUNNINGHAM   | STACY       |         98.77 |
+| BRADLEY      | ANA         |        174.66 |
+| LANE         | RENEE       |         97.74 |
+| ANDREWS      | IDA         |         76.77 |
+| RUIZ         | VIVIAN      |         90.77 |
+| HARPER       | ROBERTA     |         84.77 |
+| FOX          | HOLLY       |        114.69 |
+| RILEY        | BRITTANY    |        159.72 |
+| ARMSTRONG    | MELANIE     |         92.75 |
+| CARPENTER    | LORETTA     |         93.78 |
+| WEAVER       | YOLANDA     |        110.73 |
+| GREENE       | JEANETTE    |         74.80 |
+| LAWRENCE     | LAURIE      |         99.77 |
+| ELLIOTT      | KATIE       |        109.75 |
+| CHAVEZ       | KRISTEN     |         87.82 |
+| SIMS         | VANESSA     |         86.81 |
+| AUSTIN       | ALMA        |        151.65 |
+| PETERS       | SUE         |        154.60 |
+| KELLEY       | ELSIE       |        141.63 |
+| FRANKLIN     | BETH        |        103.75 |
+| LAWSON       | JEANNE      |        136.73 |
+| FIELDS       | VICKI       |        108.75 |
+| GUTIERREZ    | CARLA       |        103.74 |
+| RYAN         | TARA        |         88.80 |
+| SCHMIDT      | ROSEMARY    |        147.65 |
+| CARR         | EILEEN      |         80.82 |
+| VASQUEZ      | TERRI       |        126.73 |
+| CASTILLO     | GERTRUDE    |        137.66 |
+| WHEELER      | LUCY        |         91.74 |
+| CHAPMAN      | TONYA       |        161.68 |
+| OLIVER       | ELLA        |        137.69 |
+| MONTGOMERY   | STACEY      |        151.66 |
+| RICHARDS     | WILMA       |         91.80 |
+| WILLIAMSON   | GINA        |        111.72 |
+| JOHNSTON     | KRISTIN     |        116.69 |
+| BANKS        | JESSIE      |         91.74 |
+| MEYER        | NATALIE     |         95.77 |
+| BISHOP       | AGNES       |         98.77 |
+| MCCOY        | VERA        |         67.82 |
+| HOWELL       | WILLIE      |        101.74 |
+| ALVAREZ      | CHARLENE    |        114.73 |
+| MORRISON     | BESSIE      |        132.72 |
+| HANSEN       | DELORES     |         91.79 |
+| FERNANDEZ    | MELINDA     |         80.83 |
+| GARZA        | PEARL       |         76.78 |
+| HARVEY       | ARLENE      |        120.74 |
+| LITTLE       | MAUREEN     |         87.79 |
+| BURTON       | COLLEEN     |         87.76 |
+| STANLEY      | ALLISON     |         92.73 |
+| NGUYEN       | TAMARA      |         93.75 |
+| GEORGE       | JOY         |        124.67 |
+| JACOBS       | GEORGIA     |        110.74 |
+| REID         | CONSTANCE   |         95.75 |
+| KIM          | LILLIE      |         89.77 |
+| FULLER       | CLAUDIA     |        111.74 |
+| LYNCH        | JACKIE      |         93.75 |
+| DEAN         | MARCIA      |        175.58 |
+| GILBERT      | TANYA       |        144.67 |
+| GARRETT      | NELLIE      |         94.79 |
+| ROMERO       | MINNIE      |        142.66 |
+| WELCH        | MARLENE     |        117.74 |
+| LARSON       | HEIDI       |        122.66 |
+| FRAZIER      | GLENDA      |        140.68 |
+| BURKE        | LYDIA       |         82.76 |
+| HANSON       | VIOLA       |        129.68 |
+| DAY          | COURTNEY    |        132.68 |
+| MENDOZA      | MARIAN      |        107.77 |
+| MORENO       | STELLA      |        104.78 |
+| BOWMAN       | CAROLINE    |         50.85 |
+| MEDINA       | DORA        |        107.77 |
+| FOWLER       | JO          |         73.80 |
+| BREWER       | VICKIE      |        120.69 |
+| HOFFMAN      | MATTIE      |         64.78 |
+| CARLSON      | TERRY       |        127.71 |
+| SILVA        | MAXINE      |        116.68 |
+| PEARSON      | IRMA        |         70.82 |
+| HOLLAND      | MABEL       |        112.70 |
+| DOUGLAS      | MARSHA      |        151.63 |
+| FLEMING      | MYRTLE      |        110.76 |
+| JENSEN       | LENA        |        168.68 |
+| VARGAS       | CHRISTY     |        122.69 |
+| BYRD         | DEANNA      |        107.74 |
+| DAVIDSON     | PATSY       |        119.72 |
+| HOPKINS      | HILDA       |        122.71 |
+| MAY          | GWENDOLYN   |         98.75 |
+| TERRY        | JENNIE      |        133.71 |
+| HERRERA      | NORA        |        118.72 |
+| WADE         | MARGIE      |        159.64 |
+| SOTO         | NINA        |        123.71 |
+| WALTERS      | CASSANDRA   |        129.70 |
+| CURTIS       | LEAH        |        104.75 |
+| NEAL         | PENNY       |         68.82 |
+| CALDWELL     | KAY         |         98.80 |
+| LOWE         | PRISCILLA   |        157.65 |
+| JENNINGS     | NAOMI       |        152.65 |
+| BARNETT      | CAROLE      |        108.70 |
+| GRAVES       | BRANDY      |        122.72 |
+| JIMENEZ      | OLGA        |        144.68 |
+| HORTON       | BILLIE      |         88.74 |
+| SHELTON      | DIANNE      |        135.69 |
+| BARRETT      | TRACEY      |        118.73 |
+| OBRIEN       | LEONA       |         50.86 |
+| CASTRO       | JENNY       |        103.73 |
+| SUTTON       | FELICIA     |         86.72 |
+| GREGORY      | SONIA       |        126.72 |
+| MCKINNEY     | MIRIAM      |        135.74 |
+| LUCAS        | VELMA       |        117.73 |
+| MILES        | BECKY       |        115.71 |
+| CRAIG        | BOBBIE      |         80.76 |
+| RODRIQUEZ    | VIOLET      |        142.70 |
+| CHAMBERS     | KRISTINA    |        109.72 |
+| HOLT         | TONI        |         95.77 |
+| LAMBERT      | MISTY       |        118.73 |
+| FLETCHER     | MAE         |        158.69 |
+| WATTS        | SHELLY      |        113.74 |
+| BATES        | DAISY       |        162.62 |
+| HALE         | RAMONA      |        129.70 |
+| RHODES       | SHERRI      |        128.67 |
+| PENA         | ERIKA       |        101.74 |
+| GANNON       | JAMES       |        131.70 |
+| FARNSWORTH   | JOHN        |        137.69 |
+| BAUGHMAN     | ROBERT      |         92.79 |
+| SILVERMAN    | MICHAEL     |        127.71 |
+| SATTERFIELD  | WILLIAM     |        100.74 |
+| ROYAL        | DAVID       |        115.74 |
+| MCCRARY      | RICHARD     |        109.75 |
+| KOWALSKI     | CHARLES     |        138.68 |
+| JOY          | JOSEPH      |        134.70 |
+| GRIGSBY      | THOMAS      |        105.75 |
+| GRECO        | CHRISTOPHER |        147.69 |
+| CABRAL       | DANIEL      |         97.80 |
+| TROUT        | PAUL        |        120.77 |
+| RINEHART     | MARK        |        104.74 |
+| MAHON        | DONALD      |         89.77 |
+| LINTON       | GEORGE      |        131.67 |
+| GOODEN       | KENNETH     |         84.83 |
+| CURLEY       | STEVEN      |        132.71 |
+| BAUGH        | EDWARD      |        114.72 |
+| WYMAN        | BRIAN       |         52.88 |
+| WEINER       | RONALD      |        132.70 |
+| SCHWAB       | ANTHONY     |         71.80 |
+| SCHULER      | KEVIN       |        116.78 |
+| MORRISSEY    | JASON       |        128.72 |
+| MAHAN        | MATTHEW     |        114.69 |
+| COY          | GARY        |        103.75 |
+| BUNN         | TIMOTHY     |         91.78 |
+| ANDREW       | JOSE        |         96.75 |
+| THRASHER     | LARRY       |        112.74 |
+| SPEAR        | JEFFREY     |         90.77 |
+| WAGGONER     | FRANK       |        127.68 |
+| SHELLEY      | SCOTT       |         94.75 |
+| ROBERT       | ERIC        |        122.73 |
+| QUALLS       | STEPHEN     |        118.72 |
+| PURDY        | ANDREW      |        109.73 |
+| MCWHORTER    | RAYMOND     |        135.70 |
+| MAULDIN      | GREGORY     |         78.77 |
+| MARK         | JOSHUA      |        119.70 |
+| JORDON       | JERRY       |        143.71 |
+| GILMAN       | DENNIS      |        114.72 |
+| PERRYMAN     | WALTER      |        127.70 |
+| NEWSOM       | PATRICK     |        119.69 |
+| MENARD       | PETER       |        106.77 |
+| MARTINO      | HAROLD      |        130.68 |
+| GRAF         | DOUGLAS     |        114.75 |
+| BILLINGSLEY  | HENRY       |         73.82 |
+| ARTIS        | CARL        |        106.77 |
+| SIMPKINS     | ARTHUR      |        155.68 |
+| SALISBURY    | RYAN        |        142.70 |
+| QUINTANILLA  | ROGER       |        146.64 |
+| GILLILAND    | JOE         |        138.71 |
+| FRALEY       | JUAN        |         73.77 |
+| FOUST        | JACK        |         89.76 |
+| CROUSE       | ALBERT      |         99.77 |
+| SCARBOROUGH  | JONATHAN    |         72.82 |
+| NGO          | JUSTIN      |        129.64 |
+| GRISSOM      | TERRY       |         72.80 |
+| FULTZ        | GERALD      |        121.70 |
+| RICO         | KEITH       |         89.74 |
+| MARLOW       | SAMUEL      |         80.79 |
+| MARKHAM      | WILLIE      |        101.75 |
+| MADRIGAL     | RALPH       |        150.66 |
+| LAWTON       | LAWRENCE    |        100.69 |
+| BARFIELD     | NICHOLAS    |        145.68 |
+| WHITING      | ROY         |        143.71 |
+| VARNEY       | BENJAMIN    |         95.77 |
+| SCHWARZ      | BRUCE       |        103.77 |
+| HUEY         | BRANDON     |        152.63 |
+| GOOCH        | ADAM        |        101.78 |
+| ARCE         | HARRY       |        157.65 |
+| WHEAT        | FRED        |         88.75 |
+| TRUONG       | WAYNE       |         70.81 |
+| POULIN       | BILLY       |        149.65 |
+| MACKENZIE    | STEVE       |        158.66 |
+| LEONE        | LOUIS       |        161.65 |
+| HURTADO      | JEREMY      |        103.72 |
+| SELBY        | AARON       |        110.76 |
+| GAITHER      | RANDY       |        110.72 |
+| FORTNER      | HOWARD      |         93.74 |
+| CULPEPPER    | EUGENE      |         71.81 |
+| COUGHLIN     | CARLOS      |        106.77 |
+| BRINSON      | RUSSELL     |        136.64 |
+| BOUDREAU     | BOBBY       |        106.65 |
+| BARKLEY      | VICTOR      |         91.76 |
+| BALES        | MARTIN      |        103.73 |
+| STEPP        | ERNEST      |         89.75 |
+| HOLM         | PHILLIP     |        101.74 |
+| TAN          | TODD        |        117.71 |
+| SCHILLING    | JESSE       |        101.74 |
+| MORRELL      | CRAIG       |        124.70 |
+| KAHN         | ALAN        |        124.74 |
+| HEATON       | SHAWN       |        152.67 |
+| GAMEZ        | CLARENCE    |        104.70 |
+| DOUGLASS     | SEAN        |         91.77 |
+| CAUSEY       | PHILIP      |        121.69 |
+| BROTHERS     | CHRIS       |         84.78 |
+| TURPIN       | JOHNNY      |         57.81 |
+| SHANKS       | EARL        |        111.73 |
+| SCHRADER     | JIMMY       |        105.71 |
+| MEEK         | ANTONIO     |         78.84 |
+| ISOM         | DANNY       |         91.79 |
+| HARDISON     | BRYAN       |        124.72 |
+| CARRANZA     | TONY        |         73.79 |
+| YANEZ        | LUIS        |         79.80 |
+| WAY          | MIKE        |        166.65 |
+| SCROGGINS    | STANLEY     |        139.70 |
+| SCHOFIELD    | LEONARD     |        109.68 |
+| RUNYON       | NATHAN      |        122.68 |
+| RATCLIFF     | DALE        |        112.73 |
+| MURRELL      | MANUEL      |        116.70 |
+| MOELLER      | RODNEY      |        104.77 |
+| IRBY         | CURTIS      |        167.62 |
+| CURRIER      | NORMAN      |         80.74 |
+| BUTTERFIELD  | ALLEN       |         85.79 |
+| YEE          | MARVIN      |         75.79 |
+| RALSTON      | VINCENT     |        105.75 |
+| PULLEN       | GLENN       |         93.77 |
+| PINSON       | JEFFERY     |        121.69 |
+| ESTEP        | TRAVIS      |        110.75 |
+| EAST         | JEFF        |        107.70 |
+| CARBONE      | CHAD        |         89.75 |
+| LANCE        | JACOB       |         79.79 |
+| HAWKS        | LEE         |        119.73 |
+| ELLINGTON    | MELVIN      |         97.74 |
+| CASILLAS     | ALFRED      |        120.74 |
+| SPURLOCK     | KYLE        |        110.70 |
+| SIKES        | FRANCIS     |        104.74 |
+| MOTLEY       | BRADLEY     |        126.73 |
+| MCCARTNEY    | JESUS       |        114.76 |
+| KRUGER       | HERBERT     |         78.80 |
+| ISBELL       | FREDERICK   |        105.79 |
+| HOULE        | RAY         |         79.78 |
+| FRANCISCO    | JOEL        |         95.77 |
+| BURK         | EDWIN       |        116.77 |
+| BONE         | DON         |        133.75 |
+| TOMLIN       | EDDIE       |        128.73 |
+| SHELBY       | RICKY       |         91.75 |
+| QUIGLEY      | TROY        |        144.70 |
+| NEUMANN      | RANDALL     |         99.77 |
+| LOVELACE     | BARRY       |        134.67 |
+| FENNELL      | ALEXANDER   |        151.64 |
+| COLBY        | BERNARD     |         88.78 |
+| CHEATHAM     | MARIO       |        112.72 |
+| BUSTAMANTE   | LEROY       |        118.68 |
+| SKIDMORE     | FRANCISCO   |         98.78 |
+| HIDALGO      | MARCUS      |        115.70 |
+| FORMAN       | MICHEAL     |        102.74 |
+| CULP         | THEODORE    |        116.69 |
+| BOWENS       | CLIFFORD    |        113.71 |
+| BETANCOURT   | MIGUEL      |        135.71 |
+| AQUINO       | OSCAR       |         99.80 |
+| ROBB         | JAY         |         89.74 |
+| REA          | JIM         |        128.67 |
+| MILNER       | TOM         |        107.68 |
+| MARTEL       | CALVIN      |        111.77 |
+| GRESHAM      | ALEX        |        151.67 |
+| WILES        | JON         |         87.76 |
+| RICKETTS     | RONNIE      |        100.75 |
+| GAVIN        | BILL        |        114.72 |
+| DOWD         | LLOYD       |         66.81 |
+| COLLAZO      | TOMMY       |        186.62 |
+| BOSTIC       | LEON        |        109.75 |
+| BLAKELY      | DEREK       |         97.72 |
+| SHERROD      | WARREN      |        159.67 |
+| POWER        | DARRELL     |         91.75 |
+| KENYON       | JEROME      |         73.84 |
+| GANDY        | FLOYD       |         69.83 |
+| EBERT        | LEO         |        104.77 |
+| DELOACH      | ALVIN       |        139.71 |
+| CARY         | TIM         |        175.61 |
+| BULL         | WESLEY      |        177.60 |
+| ALLARD       | GORDON      |        160.68 |
+| SAUER        | DEAN        |        109.73 |
+| ROBINS       | GREG        |        141.70 |
+| OLIVARES     | JORGE       |        134.66 |
+| GILLETTE     | DUSTIN      |        100.74 |
+| CHESTNUT     | PEDRO       |        103.76 |
+| BOURQUE      | DERRICK     |         95.78 |
+| PAINE        | DAN         |        109.78 |
+| LYMAN        | LEWIS       |         86.81 |
+| HITE         | ZACHARY     |        146.69 |
+| HAUSER       | COREY       |        101.78 |
+| DEVORE       | HERMAN      |        115.71 |
+| CRAWLEY      | MAURICE     |        138.71 |
+| CHAPA        | VERNON      |         88.82 |
+| VU           | ROBERTO     |        139.70 |
+| TOBIAS       | CLYDE       |        115.71 |
+| TALBERT      | GLEN        |        113.74 |
+| POINDEXTER   | HECTOR      |        119.74 |
+| MILLARD      | SHANE       |         95.78 |
+| MEADOR       | RICARDO     |         99.79 |
+| MCDUFFIE     | SAM         |        117.76 |
+| MATTOX       | RICK        |        124.73 |
+| KRAUS        | LESTER      |         65.84 |
+| HARKINS      | BRENT       |        112.77 |
+| CHOATE       | RAMON       |        140.69 |
+| BESS         | CHARLIE     |        120.74 |
+| WREN         | TYLER       |         88.79 |
+| SLEDGE       | GILBERT     |        129.72 |
+| SANBORN      | GENE        |         97.73 |
+| OUTLAW       | MARC        |        123.70 |
+| KINDER       | REGINALD    |        115.72 |
+| GEARY        | RUBEN       |         89.79 |
+| CORNWELL     | BRETT       |        138.66 |
+| BARCLAY      | ANGEL       |        115.68 |
+| ADAM         | NATHANIEL   |        133.72 |
+| ABNEY        | RAFAEL      |         97.79 |
+| SEWARD       | LESLIE      |        152.65 |
+| RHOADS       | EDGAR       |         95.75 |
+| HOWLAND      | MILTON      |        127.75 |
+| FORTIER      | RAUL        |        100.80 |
+| EASTER       | BEN         |        122.74 |
+| BENNER       | CHESTER     |         99.76 |
+| VINES        | CECIL       |        115.74 |
+| TUBBS        | DUANE       |        148.69 |
+| TROUTMAN     | FRANKLIN    |         74.78 |
+| RAPP         | ANDRE       |        126.72 |
+| NOE          | ELMER       |         98.74 |
+| MCCURDY      | BRAD        |        105.75 |
+| HARDER       | GABRIEL     |        111.74 |
+| DELUCA       | RON         |        103.77 |
+| WESTMORELAND | MITCHELL    |        134.68 |
+| SOUTH        | ROLAND      |         80.77 |
+| HAVENS       | ARNOLD      |        167.67 |
+| GUAJARDO     | HARVEY      |         93.78 |
+| ELY          | JARED       |         87.81 |
+| CLARY        | ADRIAN      |         74.81 |
+| SEAL         | KARL        |        221.55 |
+| MEEHAN       | CORY        |         81.76 |
+| HERZOG       | CLAUDE      |        111.75 |
+| GUILLEN      | ERIK        |        118.71 |
+| ASHCRAFT     | DARRYL      |         76.77 |
+| WAUGH        | JAMIE       |        118.75 |
+| RENNER       | NEIL        |        152.68 |
+| MILAM        | JESSIE      |        141.67 |
+| JUNG         | CHRISTIAN   |         88.76 |
+| ELROD        | JAVIER      |        135.68 |
+| CHURCHILL    | FERNANDO    |        117.75 |
+| BUFORD       | CLINTON     |        103.75 |
+| BREAUX       | TED         |        117.71 |
+| BOLIN        | MATHEW      |         90.78 |
+| ASHER        | TYRONE      |        112.76 |
+| WINDHAM      | DARREN      |        108.76 |
+| TIRADO       | LONNIE      |         94.82 |
+| PEMBERTON    | LANCE       |         82.78 |
+| NOLEN        | CODY        |         98.78 |
+| NOLAND       | JULIO       |         89.79 |
+| KNOTT        | KELLY       |        103.75 |
+| EMMONS       | KURT        |         99.77 |
+| CORNISH      | ALLAN       |         79.81 |
+| CHRISTENSON  | NELSON      |         77.80 |
+| BROWNLEE     | GUY         |        159.68 |
+| BARBEE       | CLAYTON     |         96.74 |
+| WALDROP      | HUGH        |         90.79 |
+| PITT         | MAX         |        107.76 |
+| OLVERA       | DWAYNE      |        101.78 |
+| LOMBARDI     | DWIGHT      |         74.83 |
+| GRUBER       | ARMANDO     |         83.79 |
+| GAFFNEY      | FELIX       |         73.76 |
+| EGGLESTON    | JIMMIE      |        135.72 |
+| BANDA        | EVERETT     |        110.72 |
+| ARCHULETA    | JORDAN      |        132.70 |
+| STILL        | IAN         |         96.73 |
+| SLONE        | WALLACE     |        109.75 |
+| PREWITT      | KEN         |        110.71 |
+| PFEIFFER     | BOB         |         91.76 |
+| NETTLES      | JAIME       |        126.71 |
+| MENA         | CASEY       |        141.66 |
+| MCADAMS      | ALFREDO     |         85.80 |
+| HENNING      | ALBERTO     |         66.79 |
+| GARDINER     | DAVE        |        134.68 |
+| CROMWELL     | IVAN        |         99.74 |
+| CHISHOLM     | JOHNNIE     |        121.76 |
+| BURLESON     | SIDNEY      |        108.75 |
+| BOX          | BYRON       |        120.71 |
+| VEST         | JULIAN      |        109.72 |
+| OGLESBY      | ISAAC       |        126.71 |
+| MCCARTER     | MORRIS      |        139.66 |
+| MALCOLM      | CLIFTON     |        117.73 |
+| LUMPKIN      | WILLARD     |         96.78 |
+| LARUE        | DARYL       |        111.73 |
+| GREY         | ROSS        |         99.73 |
+| WOFFORD      | VIRGIL      |        107.73 |
+| VANHORN      | ANDY        |        113.75 |
+| THORN        | MARSHALL    |        117.77 |
+| TEEL         | SALVADOR    |        129.70 |
+| SWAFFORD     | PERRY       |        117.76 |
+| STCLAIR      | KIRK        |         64.81 |
+| STANFIELD    | SERGIO      |        108.74 |
+| OCAMPO       | MARION      |        115.71 |
+| HERRMANN     | TRACY       |        129.72 |
+| HANNON       | SETH        |        112.75 |
+| ARSENAULT    | KENT        |        134.73 |
+| ROUSH        | TERRANCE    |        111.71 |
+| MCALISTER    | RENE        |        113.74 |
+| HIATT        | EDUARDO     |        130.73 |
+| GUNDERSON    | TERRENCE    |        117.70 |
+| FORSYTHE     | ENRIQUE     |         96.72 |
+| DUGGAN       | FREDDIE     |         99.75 |
+| DELVALLE     | WADE        |         83.78 |
+| CINTRON      | AUSTIN      |         83.81 |
+| DE ARCO      | JUANA       |          NULL |
++--------------+-------------+---------------+
+600 rows in set (0.0222 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > desc film;
++----------------------+---------------------------------------------------------------------+------+-----+-------------------+-----------------------------------------------+
+| Field                | Type                                                                | Null | Key | Default           | Extra                  |
++----------------------+---------------------------------------------------------------------+------+-----+-------------------+-----------------------------------------------+
+| film_id              | smallint unsigned                                                   | NO   | PRI | NULL              | auto_increment                  |
+| title                | varchar(128)                                                        | NO   | MUL | NULL              |                  |
+| description          | text                                                                | YES  |     | NULL              |                  |
+| release_year         | year                                                                | YES  |     | NULL              |                  |
+| language_id          | tinyint unsigned                                                    | NO   | MUL | NULL              |                  |
+| original_language_id | tinyint unsigned                                                    | YES  | MUL | NULL              |                  |
+| rental_duration      | tinyint unsigned                                                    | NO   |     | 3                 |                  |
+| rental_rate          | decimal(4,2)                                                        | NO   |     | 4.99              |                  |
+| length               | smallint unsigned                                                   | YES  |     | NULL              |                  |
+| replacement_cost     | decimal(5,2)                                                        | NO   |     | 19.99             |                  |
+| rating               | enum('G','PG','PG-13','R','NC-17')                                  | YES  |     | G                 |                  |
+| special_features     | set('Trailers','Commentaries','Deleted Scenes','Behind the Scenes') | YES  |     | NULL              |                  |
+| last_update          | timestamp                                                           | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED on updateCURRENT_TIMESTAMP |
++----------------------+---------------------------------------------------------------------+------+-----+-------------------+-----------------------------------------------+
+13 rows in set (0.0029 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > desc lenguage;
+ERROR: 1146 (42S02): Table 'sakila.lenguage' doesn't exist
+ MySQL  localhost:3306 ssl  sakila  SQL > desc language;
++-------------+------------------+------+-----+-------------------+-----------------------------------------------+
+| Field       | Type             | Null | Key | Default           | Extra                                         |
++-------------+------------------+------+-----+-------------------+-----------------------------------------------+
+| language_id | tinyint unsigned | NO   | PRI | NULL              | auto_increment                                |
+| name        | char(20)         | NO   |     | NULL              |                                               |
+| last_update | timestamp        | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED on update CURRENT_TIMESTAMP |
++-------------+------------------+------+-----+-------------------+-----------------------------------------------+
+3 rows in set (0.0023 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > select a.title, b.name from film a left join language b on a.language_id = b.language_id;
++-----------------------------+---------+
+| title                       | name    |
++-----------------------------+---------+
+| ACADEMY DINOSAUR            | English |
+| ACE GOLDFINGER              | English |
+| ADAPTATION HOLES            | English |
+| AFFAIR PREJUDICE            | English |
+| AFRICAN EGG                 | English |
+| AGENT TRUMAN                | English |
+| AIRPLANE SIERRA             | English |
+| AIRPORT POLLOCK             | English |
+| ALABAMA DEVIL               | English |
+| ALADDIN CALENDAR            | English |
+| ALAMO VIDEOTAPE             | English |
+| ALASKA PHANTOM              | English |
+| ALI FOREVER                 | English |
+| ALICE FANTASIA              | English |
+| ALIEN CENTER                | English |
+| ALLEY EVOLUTION             | English |
+| ALONE TRIP                  | English |
+| ALTER VICTORY               | English |
+| AMADEUS HOLY                | English |
+| AMELIE HELLFIGHTERS         | English |
+| AMERICAN CIRCUS             | English |
+| AMISTAD MIDSUMMER           | English |
+| ANACONDA CONFESSIONS        | English |
+| ANALYZE HOOSIERS            | English |
+| ANGELS LIFE                 | English |
+| ANNIE IDENTITY              | English |
+| ANONYMOUS HUMAN             | English |
+| ANTHEM LUKE                 | English |
+| ANTITRUST TOMATOES          | English |
+| ANYTHING SAVANNAH           | English |
+| APACHE DIVINE               | English |
+| APOCALYPSE FLAMINGOS        | English |
+| APOLLO TEEN                 | English |
+| ARABIA DOGMA                | English |
+| ARACHNOPHOBIA ROLLERCOASTER | English |
+| ARGONAUTS TOWN              | English |
+| ARIZONA BANG                | English |
+| ARK RIDGEMONT               | English |
+| ARMAGEDDON LOST             | English |
+| ARMY FLINTSTONES            | English |
+| ARSENIC INDEPENDENCE        | English |
+| ARTIST COLDBLOODED          | English |
+| ATLANTIS CAUSE              | English |
+| ATTACKS HATE                | English |
+| ATTRACTION NEWTON           | English |
+| AUTUMN CROW                 | English |
+| BABY HALL                   | English |
+| BACKLASH UNDEFEATED         | English |
+| BADMAN DAWN                 | English |
+| BAKED CLEOPATRA             | English |
+| BALLOON HOMEWARD            | English |
+| BALLROOM MOCKINGBIRD        | English |
+| BANG KWAI                   | English |
+| BANGER PINOCCHIO            | English |
+| BARBARELLA STREETCAR        | English |
+| BAREFOOT MANCHURIAN         | English |
+| BASIC EASY                  | English |
+| BEACH HEARTBREAKERS         | English |
+| BEAR GRACELAND              | English |
+| BEAST HUNCHBACK             | English |
+| BEAUTY GREASE               | English |
+| BED HIGHBALL                | English |
+| BEDAZZLED MARRIED           | English |
+| BEETHOVEN EXORCIST          | English |
+| BEHAVIOR RUNAWAY            | English |
+| BENEATH RUSH                | English |
+| BERETS AGENT                | English |
+| BETRAYED REAR               | English |
+| BEVERLY OUTLAW              | English |
+| BIKINI BORROWERS            | English |
+| BILKO ANONYMOUS             | English |
+| BILL OTHERS                 | English |
+| BINGO TALENTED              | English |
+| BIRCH ANTITRUST             | English |
+| BIRD INDEPENDENCE           | English |
+| BIRDCAGE CASPER             | English |
+| BIRDS PERDITION             | English |
+| BLACKOUT PRIVATE            | English |
+| BLADE POLISH                | English |
+| BLANKET BEVERLY             | English |
+| BLINDNESS GUN               | English |
+| BLOOD ARGONAUTS             | English |
+| BLUES INSTINCT              | English |
+| BOILED DARES                | English |
+| BONNIE HOLOCAUST            | English |
+| BOOGIE AMELIE               | English |
+| BOONDOCK BALLROOM           | English |
+| BORN SPINAL                 | English |
+| BORROWERS BEDAZZLED         | English |
+| BOULEVARD MOB               | English |
+| BOUND CHEAPER               | English |
+| BOWFINGER GABLES            | English |
+| BRANNIGAN SUNRISE           | English |
+| BRAVEHEART HUMAN            | English |
+| BREAKFAST GOLDFINGER        | English |
+| BREAKING HOME               | English |
+| BRIDE INTRIGUE              | English |
+| BRIGHT ENCOUNTERS           | English |
+| BRINGING HYSTERICAL         | English |
+| BROOKLYN DESERT             | English |
+| BROTHERHOOD BLANKET         | English |
+| BUBBLE GROSSE               | English |
+| BUCKET BROTHERHOOD          | English |
+| BUGSY SONG                  | English |
+| BULL SHAWSHANK              | English |
+| BULWORTH COMMANDMENTS       | English |
+| BUNCH MINDS                 | English |
+| BUTCH PANTHER               | English |
+| BUTTERFLY CHOCOLAT          | English |
+| CABIN FLASH                 | English |
+| CADDYSHACK JEDI             | English |
+| CALENDAR GUNFIGHT           | English |
+| CALIFORNIA BIRDS            | English |
+| CAMELOT VACATION            | English |
+| CAMPUS REMEMBER             | English |
+| CANDIDATE PERDITION         | English |
+| CANDLES GRAPES              | English |
+| CANYON STOCK                | English |
+| CAPER MOTIONS               | English |
+| CARIBBEAN LIBERTY           | English |
+| CAROL TEXAS                 | English |
+| CARRIE BUNCH                | English |
+| CASABLANCA SUPER            | English |
+| CASPER DRAGONFLY            | English |
+| CASSIDY WYOMING             | English |
+| CASUALTIES ENCINO           | English |
+| CAT CONEHEADS               | English |
+| CATCH AMISTAD               | English |
+| CAUSE DATE                  | English |
+| CELEBRITY HORN              | English |
+| CENTER DINOSAUR             | English |
+| CHAINSAW UPTOWN             | English |
+| CHAMBER ITALIAN             | English |
+| CHAMPION FLATLINERS         | English |
+| CHANCE RESURRECTION         | English |
+| CHAPLIN LICENSE             | English |
+| CHARADE DUFFEL              | English |
+| CHARIOTS CONSPIRACY         | English |
+| CHASING FIGHT               | English |
+| CHEAPER CLYDE               | English |
+| CHICAGO NORTH               | English |
+| CHICKEN HELLFIGHTERS        | English |
+| CHILL LUCK                  | English |
+| CHINATOWN GLADIATOR         | English |
+| CHISUM BEHAVIOR             | English |
+| CHITTY LOCK                 | English |
+| CHOCOLAT HARRY              | English |
+| CHOCOLATE DUCK              | English |
+| CHRISTMAS MOONSHINE         | English |
+| CIDER DESIRE                | English |
+| CINCINATTI WHISPERER        | English |
+| CIRCUS YOUTH                | English |
+| CITIZEN SHREK               | English |
+| CLASH FREDDY                | English |
+| CLEOPATRA DEVIL             | English |
+| CLERKS ANGELS               | English |
+| CLOCKWORK PARADISE          | English |
+| CLONES PINOCCHIO            | English |
+| CLOSER BANG                 | English |
+| CLUB GRAFFITI               | English |
+| CLUE GRAIL                  | English |
+| CLUELESS BUCKET             | English |
+| CLYDE THEORY                | English |
+| COAST RAINBOW               | English |
+| COLDBLOODED DARLING         | English |
+| COLOR PHILADELPHIA          | English |
+| COMA HEAD                   | English |
+| COMANCHEROS ENEMY           | English |
+| COMFORTS RUSH               | English |
+| COMMAND DARLING             | English |
+| COMMANDMENTS EXPRESS        | English |
+| CONEHEADS SMOOCHY           | English |
+| CONFESSIONS MAGUIRE         | English |
+| CONFIDENTIAL INTERVIEW      | English |
+| CONFUSED CANDLES            | English |
+| CONGENIALITY QUEST          | English |
+| CONNECTICUT TRAMP           | English |
+| CONNECTION MICROCOSMOS      | English |
+| CONQUERER NUTS              | English |
+| CONSPIRACY SPIRIT           | English |
+| CONTACT ANONYMOUS           | English |
+| CONTROL ANTHEM              | English |
+| CONVERSATION DOWNHILL       | English |
+| CORE SUIT                   | English |
+| COWBOY DOOM                 | English |
+| CRAFT OUTFIELD              | English |
+| CRANES RESERVOIR            | English |
+| CRAZY HOME                  | English |
+| CREATURES SHAKESPEARE       | English |
+| CREEPERS KANE               | English |
+| CROOKED FROGMEN             | English |
+| CROSSING DIVORCE            | English |
+| CROSSROADS CASUALTIES       | English |
+| CROW GREASE                 | English |
+| CROWDS TELEMARK             | English |
+| CRUELTY UNFORGIVEN          | English |
+| CRUSADE HONEY               | English |
+| CRYSTAL BREAKING            | English |
+| CUPBOARD SINNERS            | English |
+| CURTAIN VIDEOTAPE           | English |
+| CYCLONE FAMILY              | English |
+| DADDY PITTSBURGH            | English |
+| DAISY MENAGERIE             | English |
+| DALMATIONS SWEDEN           | English |
+| DANCES NONE                 | English |
+| DANCING FEVER               | English |
+| DANGEROUS UPTOWN            | English |
+| DARES PLUTO                 | English |
+| DARKNESS WAR                | English |
+| DARKO DORADO                | English |
+| DARLING BREAKING            | English |
+| DARN FORRESTER              | English |
+| DATE SPEED                  | English |
+| DAUGHTER MADIGAN            | English |
+| DAWN POND                   | English |
+| DAY UNFAITHFUL              | English |
+| DAZED PUNK                  | English |
+| DECEIVER BETRAYED           | English |
+| DEEP CRUSADE                | English |
+| DEER VIRGINIAN              | English |
+| DELIVERANCE MULHOLLAND      | English |
+| DESERT POSEIDON             | English |
+| DESIRE ALIEN                | English |
+| DESPERATE TRAINSPOTTING     | English |
+| DESTINATION JERK            | English |
+| DESTINY SATURDAY            | English |
+| DETAILS PACKER              | English |
+| DETECTIVE VISION            | English |
+| DEVIL DESIRE                | English |
+| DIARY PANIC                 | English |
+| DINOSAUR SECRETARY          | English |
+| DIRTY ACE                   | English |
+| DISCIPLE MOTHER             | English |
+| DISTURBING SCARFACE         | English |
+| DIVIDE MONSTER              | English |
+| DIVINE RESURRECTION         | English |
+| DIVORCE SHINING             | English |
+| DOCTOR GRAIL                | English |
+| DOGMA FAMILY                | English |
+| DOLLS RAGE                  | English |
+| DONNIE ALLEY                | English |
+| DOOM DANCING                | English |
+| DOORS PRESIDENT             | English |
+| DORADO NOTTING              | English |
+| DOUBLE WRATH                | English |
+| DOUBTFIRE LABYRINTH         | English |
+| DOWNHILL ENOUGH             | English |
+| DOZEN LION                  | English |
+| DRACULA CRYSTAL             | English |
+| DRAGON SQUAD                | English |
+| DRAGONFLY STRANGERS         | English |
+| DREAM PICKUP                | English |
+| DRIFTER COMMANDMENTS        | English |
+| DRIVER ANNIE                | English |
+| DRIVING POLISH              | English |
+| DROP WATERFRONT             | English |
+| DRUMLINE CYCLONE            | English |
+| DRUMS DYNAMITE              | English |
+| DUCK RACER                  | English |
+| DUDE BLINDNESS              | English |
+| DUFFEL APOCALYPSE           | English |
+| DUMBO LUST                  | English |
+| DURHAM PANKY                | English |
+| DWARFS ALTER                | English |
+| DYING MAKER                 | English |
+| DYNAMITE TARZAN             | English |
+| EAGLES PANKY                | English |
+| EARLY HOME                  | English |
+| EARRING INSTINCT            | English |
+| EARTH VISION                | English |
+| EASY GLADIATOR              | English |
+| EDGE KISSING                | English |
+| EFFECT GLADIATOR            | English |
+| EGG IGBY                    | English |
+| EGYPT TENENBAUMS            | English |
+| ELEMENT FREDDY              | English |
+| ELEPHANT TROJAN             | English |
+| ELF MURDER                  | English |
+| ELIZABETH SHANE             | English |
+| EMPIRE MALKOVICH            | English |
+| ENCINO ELF                  | English |
+| ENCOUNTERS CURTAIN          | English |
+| ENDING CROWDS               | English |
+| ENEMY ODDS                  | English |
+| ENGLISH BULWORTH            | English |
+| ENOUGH RAGING               | English |
+| ENTRAPMENT SATISFACTION     | English |
+| ESCAPE METROPOLIS           | English |
+| EVE RESURRECTION            | English |
+| EVERYONE CRAFT              | English |
+| EVOLUTION ALTER             | English |
+| EXCITEMENT EVE              | English |
+| EXORCIST STING              | English |
+| EXPECATIONS NATURAL         | English |
+| EXPENDABLE STALLION         | English |
+| EXPRESS LONELY              | English |
+| EXTRAORDINARY CONQUERER     | English |
+| EYES DRIVING                | English |
+| FACTORY DRAGON              | English |
+| FALCON VOLUME               | English |
+| FAMILY SWEET                | English |
+| FANTASIA PARK               | English |
+| FANTASY TROOPERS            | English |
+| FARGO GANDHI                | English |
+| FATAL HAUNTED               | English |
+| FEATHERS METAL              | English |
+| FELLOWSHIP AUTUMN           | English |
+| FERRIS MOTHER               | English |
+| FEUD FROGMEN                | English |
+| FEVER EMPIRE                | English |
+| FICTION CHRISTMAS           | English |
+| FIDDLER LOST                | English |
+| FIDELITY DEVIL              | English |
+| FIGHT JAWBREAKER            | English |
+| FINDING ANACONDA            | English |
+| FIRE WOLVES                 | English |
+| FIREBALL PHILADELPHIA       | English |
+| FIREHOUSE VIETNAM           | English |
+| FISH OPUS                   | English |
+| FLAMINGOS CONNECTICUT       | English |
+| FLASH WARS                  | English |
+| FLATLINERS KILLER           | English |
+| FLIGHT LIES                 | English |
+| FLINTSTONES HAPPINESS       | English |
+| FLOATS GARDEN               | English |
+| FLYING HOOK                 | English |
+| FOOL MOCKINGBIRD            | English |
+| FOREVER CANDIDATE           | English |
+| FORREST SONS                | English |
+| FORRESTER COMANCHEROS       | English |
+| FORWARD TEMPLE              | English |
+| FRANKENSTEIN STRANGER       | English |
+| FREAKY POCUS                | English |
+| FREDDY STORM                | English |
+| FREEDOM CLEOPATRA           | English |
+| FRENCH HOLIDAY              | English |
+| FRIDA SLIPPER               | English |
+| FRISCO FORREST              | English |
+| FROGMEN BREAKING            | English |
+| FRONTIER CABIN              | English |
+| FROST HEAD                  | English |
+| FUGITIVE MAGUIRE            | English |
+| FULL FLATLINERS             | English |
+| FURY MURDER                 | English |
+| GABLES METROPOLIS           | English |
+| GALAXY SWEETHEARTS          | English |
+| GAMES BOWFINGER             | English |
+| GANDHI KWAI                 | English |
+| GANGS PRIDE                 | English |
+| GARDEN ISLAND               | English |
+| GASLIGHT CRUSADE            | English |
+| GATHERING CALENDAR          | English |
+| GENTLEMEN STAGE             | English |
+| GHOST GROUNDHOG             | English |
+| GHOSTBUSTERS ELF            | English |
+| GIANT TROOPERS              | English |
+| GILBERT PELICAN             | English |
+| GILMORE BOILED              | English |
+| GLADIATOR WESTWARD          | English |
+| GLASS DYING                 | English |
+| GLEAMING JAWBREAKER         | English |
+| GLORY TRACY                 | English |
+| GO PURPLE                   | English |
+| GODFATHER DIARY             | English |
+| GOLD RIVER                  | English |
+| GOLDFINGER SENSIBILITY      | English |
+| GOLDMINE TYCOON             | English |
+| GONE TROUBLE                | English |
+| GOODFELLAS SALUTE           | English |
+| GORGEOUS BINGO              | English |
+| GOSFORD DONNIE              | English |
+| GRACELAND DYNAMITE          | English |
+| GRADUATE LORD               | English |
+| GRAFFITI LOVE               | English |
+| GRAIL FRANKENSTEIN          | English |
+| GRAPES FURY                 | English |
+| GREASE YOUTH                | English |
+| GREATEST NORTH              | English |
+| GREEDY ROOTS                | English |
+| GREEK EVERYONE              | English |
+| GRINCH MASSAGE              | English |
+| GRIT CLOCKWORK              | English |
+| GROOVE FICTION              | English |
+| GROSSE WONDERFUL            | English |
+| GROUNDHOG UNCUT             | English |
+| GUMP DATE                   | English |
+| GUN BONNIE                  | English |
+| GUNFIGHT MOON               | English |
+| GUNFIGHTER MUSSOLINI        | English |
+| GUYS FALCON                 | English |
+| HALF OUTFIELD               | English |
+| HALL CASSIDY                | English |
+| HALLOWEEN NUTS              | English |
+| HAMLET WISDOM               | English |
+| HANDICAP BOONDOCK           | English |
+| HANGING DEEP                | English |
+| HANKY OCTOBER               | English |
+| HANOVER GALAXY              | English |
+| HAPPINESS UNITED            | English |
+| HARDLY ROBBERS              | English |
+| HAROLD FRENCH               | English |
+| HARPER DYING                | English |
+| HARRY IDAHO                 | English |
+| HATE HANDICAP               | English |
+| HAUNTED ANTITRUST           | English |
+| HAUNTING PIANIST            | English |
+| HAWK CHILL                  | English |
+| HEAD STRANGER               | English |
+| HEARTBREAKERS BRIGHT        | English |
+| HEAVEN FREEDOM              | English |
+| HEAVENLY GUN                | English |
+| HEAVYWEIGHTS BEAST          | English |
+| HEDWIG ALTER                | English |
+| HELLFIGHTERS SIERRA         | English |
+| HIGH ENCINO                 | English |
+| HIGHBALL POTTER             | English |
+| HILLS NEIGHBORS             | English |
+| HOBBIT ALIEN                | English |
+| HOCUS FRIDA                 | English |
+| HOLES BRANNIGAN             | English |
+| HOLIDAY GAMES               | English |
+| HOLLOW JEOPARDY             | English |
+| HOLLYWOOD ANONYMOUS         | English |
+| HOLOCAUST HIGHBALL          | English |
+| HOLY TADPOLE                | English |
+| HOME PITY                   | English |
+| HOMEWARD CIDER              | English |
+| HOMICIDE PEACH              | English |
+| HONEY TIES                  | English |
+| HOOK CHARIOTS               | English |
+| HOOSIERS BIRDCAGE           | English |
+| HOPE TOOTSIE                | English |
+| HORN WORKING                | English |
+| HORROR REIGN                | English |
+| HOTEL HAPPINESS             | English |
+| HOURS RAGE                  | English |
+| HOUSE DYNAMITE              | English |
+| HUMAN GRAFFITI              | English |
+| HUNCHBACK IMPOSSIBLE        | English |
+| HUNGER ROOF                 | English |
+| HUNTER ALTER                | English |
+| HUNTING MUSKETEERS          | English |
+| HURRICANE AFFAIR            | English |
+| HUSTLER PARTY               | English |
+| HYDE DOCTOR                 | English |
+| HYSTERICAL GRAIL            | English |
+| ICE CROSSING                | English |
+| IDAHO LOVE                  | English |
+| IDENTITY LOVER              | English |
+| IDOLS SNATCHERS             | English |
+| IGBY MAKER                  | English |
+| ILLUSION AMELIE             | English |
+| IMAGE PRINCESS              | English |
+| IMPACT ALADDIN              | English |
+| IMPOSSIBLE PREJUDICE        | English |
+| INCH JET                    | English |
+| INDEPENDENCE HOTEL          | English |
+| INDIAN LOVE                 | English |
+| INFORMER DOUBLE             | English |
+| INNOCENT USUAL              | English |
+| INSECTS STONE               | English |
+| INSIDER ARIZONA             | English |
+| INSTINCT AIRPORT            | English |
+| INTENTIONS EMPIRE           | English |
+| INTERVIEW LIAISONS          | English |
+| INTOLERABLE INTENTIONS      | English |
+| INTRIGUE WORST              | English |
+| INVASION CYCLONE            | English |
+| IRON MOON                   | English |
+| ISHTAR ROCKETEER            | English |
+| ISLAND EXORCIST             | English |
+| ITALIAN AFRICAN             | English |
+| JACKET FRISCO               | English |
+| JADE BUNCH                  | English |
+| JAPANESE RUN                | English |
+| JASON TRAP                  | English |
+| JAWBREAKER BROOKLYN         | English |
+| JAWS HARRY                  | English |
+| JEDI BENEATH                | English |
+| JEEPERS WEDDING             | English |
+| JEKYLL FROGMEN              | English |
+| JEOPARDY ENCINO             | English |
+| JERICHO MULAN               | English |
+| JERK PAYCHECK               | English |
+| JERSEY SASSY                | English |
+| JET NEIGHBORS               | English |
+| JINGLE SAGEBRUSH            | English |
+| JOON NORTHWEST              | English |
+| JUGGLER HARDLY              | English |
+| JUMANJI BLADE               | English |
+| JUMPING WRATH               | English |
+| JUNGLE CLOSER               | English |
+| KANE EXORCIST               | English |
+| KARATE MOON                 | English |
+| KENTUCKIAN GIANT            | English |
+| KICK SAVANNAH               | English |
+| KILL BROTHERHOOD            | English |
+| KILLER INNOCENT             | English |
+| KING EVOLUTION              | English |
+| KISS GLORY                  | English |
+| KISSING DOLLS               | English |
+| KNOCK WARLOCK               | English |
+| KRAMER CHOCOLATE            | English |
+| KWAI HOMEWARD               | English |
+| LABYRINTH LEAGUE            | English |
+| LADY STAGE                  | English |
+| LADYBUGS ARMAGEDDON         | English |
+| LAMBS CINCINATTI            | English |
+| LANGUAGE COWBOY             | English |
+| LAWLESS VISION              | English |
+| LAWRENCE LOVE               | English |
+| LEAGUE HELLFIGHTERS         | English |
+| LEATHERNECKS DWARFS         | English |
+| LEBOWSKI SOLDIERS           | English |
+| LEGALLY SECRETARY           | English |
+| LEGEND JEDI                 | English |
+| LESSON CLEOPATRA            | English |
+| LIAISONS SWEET              | English |
+| LIBERTY MAGNIFICENT         | English |
+| LICENSE WEEKEND             | English |
+| LIES TREATMENT              | English |
+| LIFE TWISTED                | English |
+| LIGHTS DEER                 | English |
+| LION UNCUT                  | English |
+| LOATHING LEGALLY            | English |
+| LOCK REAR                   | English |
+| LOLA AGENT                  | English |
+| LOLITA WORLD                | English |
+| LONELY ELEPHANT             | English |
+| LORD ARIZONA                | English |
+| LOSE INCH                   | English |
+| LOSER HUSTLER               | English |
+| LOST BIRD                   | English |
+| LOUISIANA HARRY             | English |
+| LOVE SUICIDES               | English |
+| LOVELY JINGLE               | English |
+| LOVER TRUMAN                | English |
+| LOVERBOY ATTACKS            | English |
+| LUCK OPUS                   | English |
+| LUCKY FLYING                | English |
+| LUKE MUMMY                  | English |
+| LUST LOCK                   | English |
+| MADIGAN DORADO              | English |
+| MADISON TRAP                | English |
+| MADNESS ATTACKS             | English |
+| MADRE GABLES                | English |
+| MAGIC MALLRATS              | English |
+| MAGNIFICENT CHITTY          | English |
+| MAGNOLIA FORRESTER          | English |
+| MAGUIRE APACHE              | English |
+| MAIDEN HOME                 | English |
+| MAJESTIC FLOATS             | English |
+| MAKER GABLES                | English |
+| MALKOVICH PET               | English |
+| MALLRATS UNITED             | English |
+| MALTESE HOPE                | English |
+| MANCHURIAN CURTAIN          | English |
+| MANNEQUIN WORST             | English |
+| MARRIED GO                  | English |
+| MARS ROMAN                  | English |
+| MASK PEACH                  | English |
+| MASKED BUBBLE               | English |
+| MASSACRE USUAL              | English |
+| MASSAGE IMAGE               | English |
+| MATRIX SNOWMAN              | English |
+| MAUDE MOD                   | English |
+| MEET CHOCOLATE              | English |
+| MEMENTO ZOOLANDER           | English |
+| MENAGERIE RUSHMORE          | English |
+| MERMAID INSECTS             | English |
+| METAL ARMAGEDDON            | English |
+| METROPOLIS COMA             | English |
+| MICROCOSMOS PARADISE        | English |
+| MIDNIGHT WESTWARD           | English |
+| MIDSUMMER GROUNDHOG         | English |
+| MIGHTY LUCK                 | English |
+| MILE MULAN                  | English |
+| MILLION ACE                 | English |
+| MINDS TRUMAN                | English |
+| MINE TITANS                 | English |
+| MINORITY KISS               | English |
+| MIRACLE VIRTUAL             | English |
+| MISSION ZOOLANDER           | English |
+| MIXED DOORS                 | English |
+| MOB DUFFEL                  | English |
+| MOCKINGBIRD HOLLYWOOD       | English |
+| MOD SECRETARY               | English |
+| MODEL FISH                  | English |
+| MODERN DORADO               | English |
+| MONEY HAROLD                | English |
+| MONSOON CAUSE               | English |
+| MONSTER SPARTACUS           | English |
+| MONTEREY LABYRINTH          | English |
+| MONTEZUMA COMMAND           | English |
+| MOON BUNCH                  | English |
+| MOONSHINE CABIN             | English |
+| MOONWALKER FOOL             | English |
+| MOSQUITO ARMAGEDDON         | English |
+| MOTHER OLEANDER             | English |
+| MOTIONS DETAILS             | English |
+| MOULIN WAKE                 | English |
+| MOURNING PURPLE             | English |
+| MOVIE SHAKESPEARE           | English |
+| MULAN MOON                  | English |
+| MULHOLLAND BEAST            | English |
+| MUMMY CREATURES             | English |
+| MUPPET MILE                 | English |
+| MURDER ANTITRUST            | English |
+| MUSCLE BRIGHT               | English |
+| MUSIC BOONDOCK              | English |
+| MUSKETEERS WAIT             | English |
+| MUSSOLINI SPOILERS          | English |
+| MYSTIC TRUMAN               | English |
+| NAME DETECTIVE              | English |
+| NASH CHOCOLAT               | English |
+| NATIONAL STORY              | English |
+| NATURAL STOCK               | English |
+| NECKLACE OUTBREAK           | English |
+| NEIGHBORS CHARADE           | English |
+| NEMO CAMPUS                 | English |
+| NETWORK PEAK                | English |
+| NEWSIES STORY               | English |
+| NEWTON LABYRINTH            | English |
+| NIGHTMARE CHILL             | English |
+| NONE SPIKING                | English |
+| NOON PAPI                   | English |
+| NORTH TEQUILA               | English |
+| NORTHWEST POLISH            | English |
+| NOTORIOUS REUNION           | English |
+| NOTTING SPEAKEASY           | English |
+| NOVOCAINE FLIGHT            | English |
+| NUTS TIES                   | English |
+| OCTOBER SUBMARINE           | English |
+| ODDS BOOGIE                 | English |
+| OKLAHOMA JUMANJI            | English |
+| OLEANDER CLUE               | English |
+| OPEN AFRICAN                | English |
+| OPERATION OPERATION         | English |
+| OPPOSITE NECKLACE           | English |
+| OPUS ICE                    | English |
+| ORANGE GRAPES               | English |
+| ORDER BETRAYED              | English |
+| ORIENT CLOSER               | English |
+| OSCAR GOLD                  | English |
+| OTHERS SOUP                 | English |
+| OUTBREAK DIVINE             | English |
+| OUTFIELD MASSACRE           | English |
+| OUTLAW HANKY                | English |
+| OZ LIAISONS                 | English |
+| PACIFIC AMISTAD             | English |
+| PACKER MADIGAN              | English |
+| PAJAMA JAWBREAKER           | English |
+| PANIC CLUB                  | English |
+| PANKY SUBMARINE             | English |
+| PANTHER REDS                | English |
+| PAPI NECKLACE               | English |
+| PARADISE SABRINA            | English |
+| PARIS WEEKEND               | English |
+| PARK CITIZEN                | English |
+| PARTY KNOCK                 | English |
+| PAST SUICIDES               | English |
+| PATHS CONTROL               | English |
+| PATIENT SISTER              | English |
+| PATRIOT ROMAN               | English |
+| PATTON INTERVIEW            | English |
+| PAYCHECK WAIT               | English |
+| PEACH INNOCENT              | English |
+| PEAK FOREVER                | English |
+| PEARL DESTINY               | English |
+| PELICAN COMFORTS            | English |
+| PERDITION FARGO             | English |
+| PERFECT GROOVE              | English |
+| PERSONAL LADYBUGS           | English |
+| PET HAUNTING                | English |
+| PHANTOM GLORY               | English |
+| PHILADELPHIA WIFE           | English |
+| PIANIST OUTFIELD            | English |
+| PICKUP DRIVING              | English |
+| PILOT HOOSIERS              | English |
+| PINOCCHIO SIMON             | English |
+| PIRATES ROXANNE             | English |
+| PITTSBURGH HUNCHBACK        | English |
+| PITY BOUND                  | English |
+| PIZZA JUMANJI               | English |
+| PLATOON INSTINCT            | English |
+| PLUTO OLEANDER              | English |
+| POCUS PULP                  | English |
+| POLISH BROOKLYN             | English |
+| POLLOCK DELIVERANCE         | English |
+| POND SEATTLE                | English |
+| POSEIDON FOREVER            | English |
+| POTLUCK MIXED               | English |
+| POTTER CONNECTICUT          | English |
+| PREJUDICE OLEANDER          | English |
+| PRESIDENT BANG              | English |
+| PRIDE ALAMO                 | English |
+| PRIMARY GLASS               | English |
+| PRINCESS GIANT              | English |
+| PRIVATE DROP                | English |
+| PRIX UNDEFEATED             | English |
+| PSYCHO SHRUNK               | English |
+| PULP BEVERLY                | English |
+| PUNK DIVORCE                | English |
+| PURE RUNNER                 | English |
+| PURPLE MOVIE                | English |
+| QUEEN LUKE                  | English |
+| QUEST MUSSOLINI             | English |
+| QUILLS BULL                 | English |
+| RACER EGG                   | English |
+| RAGE GAMES                  | English |
+| RAGING AIRPLANE             | English |
+| RAIDERS ANTITRUST           | English |
+| RAINBOW SHOCK               | English |
+| RANDOM GO                   | English |
+| RANGE MOONWALKER            | English |
+| REAP UNFAITHFUL             | English |
+| REAR TRADING                | English |
+| REBEL AIRPORT               | English |
+| RECORDS ZORRO               | English |
+| REDEMPTION COMFORTS         | English |
+| REDS POCUS                  | English |
+| REEF SALUTE                 | English |
+| REIGN GENTLEMEN             | English |
+| REMEMBER DIARY              | English |
+| REQUIEM TYCOON              | English |
+| RESERVOIR ADAPTATION        | English |
+| RESURRECTION SILVERADO      | English |
+| REUNION WITCHES             | English |
+| RIDER CADDYSHACK            | English |
+| RIDGEMONT SUBMARINE         | English |
+| RIGHT CRANES                | English |
+| RINGS HEARTBREAKERS         | English |
+| RIVER OUTLAW                | English |
+| ROAD ROXANNE                | English |
+| ROBBERS JOON                | English |
+| ROBBERY BRIGHT              | English |
+| ROCK INSTINCT               | English |
+| ROCKETEER MOTHER            | English |
+| ROCKY WAR                   | English |
+| ROLLERCOASTER BRINGING      | English |
+| ROMAN PUNK                  | English |
+| ROOF CHAMPION               | English |
+| ROOM ROMAN                  | English |
+| ROOTS REMEMBER              | English |
+| ROSES TREASURE              | English |
+| ROUGE SQUAD                 | English |
+| ROXANNE REBEL               | English |
+| RUGRATS SHAKESPEARE         | English |
+| RULES HUMAN                 | English |
+| RUN PACIFIC                 | English |
+| RUNAWAY TENENBAUMS          | English |
+| RUNNER MADIGAN              | English |
+| RUSH GOODFELLAS             | English |
+| RUSHMORE MERMAID            | English |
+| SABRINA MIDNIGHT            | English |
+| SADDLE ANTITRUST            | English |
+| SAGEBRUSH CLUELESS          | English |
+| SAINTS BRIDE                | English |
+| SALUTE APOLLO               | English |
+| SAMURAI LION                | English |
+| SANTA PARIS                 | English |
+| SASSY PACKER                | English |
+| SATISFACTION CONFIDENTIAL   | English |
+| SATURDAY LAMBS              | English |
+| SATURN NAME                 | English |
+| SAVANNAH TOWN               | English |
+| SCALAWAG DUCK               | English |
+| SCARFACE BANG               | English |
+| SCHOOL JACKET               | English |
+| SCISSORHANDS SLUMS          | English |
+| SCORPION APOLLO             | English |
+| SEA VIRGIN                  | English |
+| SEABISCUIT PUNK             | English |
+| SEARCHERS WAIT              | English |
+| SEATTLE EXPECATIONS         | English |
+| SECRET GROUNDHOG            | English |
+| SECRETARY ROUGE             | English |
+| SECRETS PARADISE            | English |
+| SENSE GREEK                 | English |
+| SENSIBILITY REAR            | English |
+| SEVEN SWARM                 | English |
+| SHAKESPEARE SADDLE          | English |
+| SHANE DARKNESS              | English |
+| SHANGHAI TYCOON             | English |
+| SHAWSHANK BUBBLE            | English |
+| SHEPHERD MIDSUMMER          | English |
+| SHINING ROSES               | English |
+| SHIP WONDERLAND             | English |
+| SHOCK CABIN                 | English |
+| SHOOTIST SUPERFLY           | English |
+| SHOW LORD                   | English |
+| SHREK LICENSE               | English |
+| SHRUNK DIVINE               | English |
+| SIDE ARK                    | English |
+| SIEGE MADRE                 | English |
+| SIERRA DIVIDE               | English |
+| SILENCE KANE                | English |
+| SILVERADO GOLDFINGER        | English |
+| SIMON NORTH                 | English |
+| SINNERS ATLANTIS            | English |
+| SISTER FREDDY               | English |
+| SKY MIRACLE                 | English |
+| SLACKER LIAISONS            | English |
+| SLEEPING SUSPECTS           | English |
+| SLEEPLESS MONSOON           | English |
+| SLEEPY JAPANESE             | English |
+| SLEUTH ORIENT               | English |
+| SLING LUKE                  | English |
+| SLIPPER FIDELITY            | English |
+| SLUMS DUCK                  | English |
+| SMILE EARRING               | English |
+| SMOKING BARBARELLA          | English |
+| SMOOCHY CONTROL             | English |
+| SNATCH SLIPPER              | English |
+| SNATCHERS MONTEZUMA         | English |
+| SNOWMAN ROLLERCOASTER       | English |
+| SOLDIERS EVOLUTION          | English |
+| SOMETHING DUCK              | English |
+| SONG HEDWIG                 | English |
+| SONS INTERVIEW              | English |
+| SORORITY QUEEN              | English |
+| SOUP WISDOM                 | English |
+| SOUTH WAIT                  | English |
+| SPARTACUS CHEAPER           | English |
+| SPEAKEASY DATE              | English |
+| SPEED SUIT                  | English |
+| SPICE SORORITY              | English |
+| SPIKING ELEMENT             | English |
+| SPINAL ROCKY                | English |
+| SPIRIT FLINTSTONES          | English |
+| SPIRITED CASUALTIES         | English |
+| SPLASH GUMP                 | English |
+| SPLENDOR PATTON             | English |
+| SPOILERS HELLFIGHTERS       | English |
+| SPY MILE                    | English |
+| SQUAD FISH                  | English |
+| STAGE WORLD                 | English |
+| STAGECOACH ARMAGEDDON       | English |
+| STALLION SUNDANCE           | English |
+| STAMPEDE DISTURBING         | English |
+| STAR OPERATION              | English |
+| STATE WASTELAND             | English |
+| STEEL SANTA                 | English |
+| STEERS ARMAGEDDON           | English |
+| STEPMOM DREAM               | English |
+| STING PERSONAL              | English |
+| STOCK GLASS                 | English |
+| STONE FIRE                  | English |
+| STORM HAPPINESS             | English |
+| STORY SIDE                  | English |
+| STRAIGHT HOURS              | English |
+| STRANGELOVE DESIRE          | English |
+| STRANGER STRANGERS          | English |
+| STRANGERS GRAFFITI          | English |
+| STREAK RIDGEMONT            | English |
+| STREETCAR INTENTIONS        | English |
+| STRICTLY SCARFACE           | English |
+| SUBMARINE BED               | English |
+| SUGAR WONKA                 | English |
+| SUICIDES SILENCE            | English |
+| SUIT WALLS                  | English |
+| SUMMER SCARFACE             | English |
+| SUN CONFESSIONS             | English |
+| SUNDANCE INVASION           | English |
+| SUNRISE LEAGUE              | English |
+| SUNSET RACER                | English |
+| SUPER WYOMING               | English |
+| SUPERFLY TRIP               | English |
+| SUSPECTS QUILLS             | English |
+| SWARM GOLD                  | English |
+| SWEDEN SHINING              | English |
+| SWEET BROTHERHOOD           | English |
+| SWEETHEARTS SUSPECTS        | English |
+| TADPOLE PARK                | English |
+| TALENTED HOMICIDE           | English |
+| TARZAN VIDEOTAPE            | English |
+| TAXI KICK                   | English |
+| TEEN APOLLO                 | English |
+| TELEGRAPH VOYAGE            | English |
+| TELEMARK HEARTBREAKERS      | English |
+| TEMPLE ATTRACTION           | English |
+| TENENBAUMS COMMAND          | English |
+| TEQUILA PAST                | English |
+| TERMINATOR CLUB             | English |
+| TEXAS WATCH                 | English |
+| THEORY MERMAID              | English |
+| THIEF PELICAN               | English |
+| THIN SAGEBRUSH              | English |
+| TIES HUNGER                 | English |
+| TIGHTS DAWN                 | English |
+| TIMBERLAND SKY              | English |
+| TITANIC BOONDOCK            | English |
+| TITANS JERK                 | English |
+| TOMATOES HELLFIGHTERS       | English |
+| TOMORROW HUSTLER            | English |
+| TOOTSIE PILOT               | English |
+| TORQUE BOUND                | English |
+| TOURIST PELICAN             | English |
+| TOWERS HURRICANE            | English |
+| TOWN ARK                    | English |
+| TRACY CIDER                 | English |
+| TRADING PINOCCHIO           | English |
+| TRAFFIC HOBBIT              | English |
+| TRAIN BUNCH                 | English |
+| TRAINSPOTTING STRANGERS     | English |
+| TRAMP OTHERS                | English |
+| TRANSLATION SUMMER          | English |
+| TRAP GUYS                   | English |
+| TREASURE COMMAND            | English |
+| TREATMENT JEKYLL            | English |
+| TRIP NEWTON                 | English |
+| TROJAN TOMORROW             | English |
+| TROOPERS METAL              | English |
+| TROUBLE DATE                | English |
+| TRUMAN CRAZY                | English |
+| TURN STAR                   | English |
+| TUXEDO MILE                 | English |
+| TWISTED PIRATES             | English |
+| TYCOON GATHERING            | English |
+| UNBREAKABLE KARATE          | English |
+| UNCUT SUICIDES              | English |
+| UNDEFEATED DALMATIONS       | English |
+| UNFAITHFUL KILL             | English |
+| UNFORGIVEN ZOOLANDER        | English |
+| UNITED PILOT                | English |
+| UNTOUCHABLES SUNRISE        | English |
+| UPRISING UPTOWN             | English |
+| UPTOWN YOUNG                | English |
+| USUAL UNTOUCHABLES          | English |
+| VACATION BOONDOCK           | English |
+| VALENTINE VANISHING         | English |
+| VALLEY PACKER               | English |
+| VAMPIRE WHALE               | English |
+| VANILLA DAY                 | English |
+| VANISHED GARDEN             | English |
+| VANISHING ROCKY             | English |
+| VARSITY TRIP                | English |
+| VELVET TERMINATOR           | English |
+| VERTIGO NORTHWEST           | English |
+| VICTORY ACADEMY             | English |
+| VIDEOTAPE ARSENIC           | English |
+| VIETNAM SMOOCHY             | English |
+| VILLAIN DESPERATE           | English |
+| VIRGIN DAISY                | English |
+| VIRGINIAN PLUTO             | English |
+| VIRTUAL SPOILERS            | English |
+| VISION TORQUE               | English |
+| VOICE PEACH                 | English |
+| VOLCANO TEXAS               | English |
+| VOLUME HOUSE                | English |
+| VOYAGE LEGALLY              | English |
+| WAGON JAWS                  | English |
+| WAIT CIDER                  | English |
+| WAKE JAWS                   | English |
+| WALLS ARTIST                | English |
+| WANDA CHAMBER               | English |
+| WAR NOTTING                 | English |
+| WARDROBE PHANTOM            | English |
+| WARLOCK WEREWOLF            | English |
+| WARS PLUTO                  | English |
+| WASH HEAVENLY               | English |
+| WASTELAND DIVINE            | English |
+| WATCH TRACY                 | English |
+| WATERFRONT DELIVERANCE      | English |
+| WATERSHIP FRONTIER          | English |
+| WEDDING APOLLO              | English |
+| WEEKEND PERSONAL            | English |
+| WEREWOLF LOLA               | English |
+| WEST LION                   | English |
+| WESTWARD SEABISCUIT         | English |
+| WHALE BIKINI                | English |
+| WHISPERER GIANT             | English |
+| WIFE TURN                   | English |
+| WILD APOLLO                 | English |
+| WILLOW TRACY                | English |
+| WIND PHANTOM                | English |
+| WINDOW SIDE                 | English |
+| WISDOM WORKER               | English |
+| WITCHES PANIC               | English |
+| WIZARD COLDBLOODED          | English |
+| WOLVES DESIRE               | English |
+| WOMEN DORADO                | English |
+| WON DARES                   | English |
+| WONDERFUL DROP              | English |
+| WONDERLAND CHRISTMAS        | English |
+| WONKA SEA                   | English |
+| WORDS HUNTER                | English |
+| WORKER TARZAN               | English |
+| WORKING MICROCOSMOS         | English |
+| WORLD LEATHERNECKS          | English |
+| WORST BANGER                | English |
+| WRATH MILE                  | English |
+| WRONG BEHAVIOR              | English |
+| WYOMING STORM               | English |
+| YENTL IDAHO                 | English |
+| YOUNG LANGUAGE              | English |
+| YOUTH KICK                  | English |
+| ZHIVAGO CORE                | English |
+| ZOOLANDER FICTION           | English |
+| ZORRO ARK                   | English |
++-----------------------------+---------+
+1000 rows in set (0.0586 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL > select a.name,count(b.film_id) from language a left join film b on a.language_id = b.language_id group by a.name;
++----------+------------------+
+| name     | count(b.film_id) |
++----------+------------------+
+| English  |             1000 |
+| Italian  |                0 |
+| Japanese |                0 |
+| Mandarin |                0 |
+| French   |                0 |
+| German   |                0 |
++----------+------------------+
+6 rows in set (0.0192 sec)
+ MySQL  localhost:3306 ssl  sakila  SQL >
